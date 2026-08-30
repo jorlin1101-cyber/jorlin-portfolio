@@ -22,6 +22,11 @@ export type Project = {
   };
 };
 
+const securePrDemoUrl =
+  process.env.NEXT_PUBLIC_SECUREPR_DEMO_URL || "http://127.0.0.1:8080/";
+const finCreditDemoUrl =
+  process.env.NEXT_PUBLIC_FINCREDIT_DEMO_URL || "http://localhost:3000/";
+
 export const profile = {
   nameZh: "石卓灵",
   nameEn: "Jorlin Shi",
@@ -114,6 +119,7 @@ export const projects: Record<Language, Project[]> = {
       stack: ["Python", "Agent Runtime", "AST", "OpenTelemetry"],
       accent: "copper",
       repo: "https://github.com/jorlin1101-cyber/securepr-agent",
+      demo: securePrDemoUrl,
       metrics: [
         { label: "固定测试集 F1", value: "81.9% → 91.3%" },
         { label: "干净 PR 准确率", value: "91.7%" },
@@ -162,7 +168,7 @@ export const projects: Record<Language, Project[]> = {
       stack: ["Next.js", "FastAPI", "RAG", "规则引擎"],
       accent: "green",
       repo: "https://github.com/jorlin1101-cyber/fincredit-copilot",
-      demo: "http://localhost:3000/",
+      demo: finCreditDemoUrl,
       metrics: [
         { label: "政策范围", value: "全国 + 成都" },
         { label: "结果原则", value: "计算确定 · 人工确认" },
@@ -182,6 +188,11 @@ export const projects: Record<Language, Project[]> = {
 
 projects.en = projects.zh.map((project) => ({
   ...project,
+  name: ({
+    "securepr-agent": "SecurePR Agent",
+    "ai-sales-lead-crm-automation": "AI Sales Lead Decision & CRM Automation",
+    "fincredit-copilot": "FinCredit Copilot",
+  } as Record<string, string>)[project.slug],
   eyebrow: ({
     "securepr-agent": "Code security review & repair",
     "ai-sales-lead-crm-automation": "Lead decisions & customer follow-up",
@@ -192,7 +203,11 @@ projects.en = projects.zh.map((project) => ({
     "ai-sales-lead-crm-automation": "Turning scattered customer facts into explainable next actions.",
     "fincredit-copilot": "Bringing documents, policy, calculations, and human confirmation into one clear lending flow.",
   } as Record<string, string>)[project.slug],
-  role: project.slug === "ai-sales-lead-crm-automation" ? "Product design & engineering" : project.role,
+  role: ({
+    "securepr-agent": "Architecture & full-stack engineering",
+    "ai-sales-lead-crm-automation": "Product design & engineering",
+    "fincredit-copilot": "Product design & full-stack engineering",
+  } as Record<string, string>)[project.slug],
   metrics: project.metrics.map((metric) => ({
     ...metric,
     label: ({
