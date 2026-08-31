@@ -23,9 +23,11 @@ export type Project = {
 };
 
 const securePrDemoUrl =
-  process.env.NEXT_PUBLIC_SECUREPR_DEMO_URL || "http://127.0.0.1:8080/";
+  process.env.NEXT_PUBLIC_SECUREPR_DEMO_URL ||
+  "https://securepr-agent-demo.onrender.com/";
 const finCreditDemoUrl =
-  process.env.NEXT_PUBLIC_FINCREDIT_DEMO_URL || "http://localhost:3000/";
+  process.env.NEXT_PUBLIC_FINCREDIT_DEMO_URL ||
+  "https://fincredit-copilot-demo.onrender.com/";
 
 export const profile = {
   nameZh: "石卓灵",
