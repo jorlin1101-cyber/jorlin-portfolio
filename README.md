@@ -19,9 +19,15 @@ pnpm dev
 
 ## 部署
 
-项目可直接导入 Vercel，构建命令使用 `pnpm run build`，无需额外环境变量。
+项目可直接导入 Vercel，构建命令使用 `pnpm run build`。三个项目的演示入口通过以下公开环境变量配置：
+
+- `NEXT_PUBLIC_FINCREDIT_DEMO_URL`
+- `NEXT_PUBLIC_SECUREPR_DEMO_URL`
+- `NEXT_PUBLIC_SALES_DEMO_URL`
+
+未配置销售项目公网地址时，本地作品集会回退到 `http://127.0.0.1:8010/`；线上页面只展示真实界面预览和“公网演示地址配置中”的提示，不会把无效的本机地址提供给访客。
 
 ## 联系
 
-- Email: jorlin1101@outlook.com
+- Email: jorlin1101@163.com
 - GitHub: https://github.com/jorlin1101-cyber

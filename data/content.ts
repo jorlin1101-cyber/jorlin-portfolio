@@ -12,7 +12,13 @@ export type Project = {
   accent: "copper" | "blue" | "green";
   repo: string;
   demo?: string;
+  localDemo?: string;
+  previewImage: string;
   metrics: { label: string; value: string }[];
+  audience: string;
+  capabilities: string[];
+  quickStart: string[];
+  demoNote: string;
   caseStudy: {
     context: string;
     challenge: string;
@@ -28,21 +34,22 @@ const securePrDemoUrl =
 const finCreditDemoUrl =
   process.env.NEXT_PUBLIC_FINCREDIT_DEMO_URL ||
   "https://fincredit-copilot-demo.onrender.com/";
+const salesDemoUrl = process.env.NEXT_PUBLIC_SALES_DEMO_URL;
 
 export const profile = {
   nameZh: "石卓灵",
   nameEn: "Jorlin Shi",
-  email: "jorlin1101@outlook.com",
+  email: "jorlin1101@163.com",
   phone: "13208105936",
   github: "https://github.com/jorlin1101-cyber",
   intro: {
     zh: {
-      title: "把 AI 放进生活和工作里，给那些“这事应该可以自动化吧？”的问题，试着找个答案。",
-      body: "我是石卓灵，一名喜欢把想法跑起来的 AI 应用开发者。这里记录我做过的 Agent、自动化工具，以及一些还在和 Bug 相处的实验。",
+      title: "和 Jorlin 一起，把 AI 想法变成真正可用的产品。",
+      body: "我是一名 AI 应用与 Agent 工程师，喜欢从真实业务问题出发，构建融合智能体、知识检索、流程自动化与人工协作的 AI 系统。",
     },
     en: {
-      title: "Bringing AI into everyday life and work — starting with the questions that sound like, “Couldn’t this be automated?”",
-      body: "I’m Jorlin Shi, an AI application developer who likes turning ideas into working systems. Here, I share the agents, automation tools, and experiments I’ve built — including the bugs I’m still negotiating with.",
+      title: "Coding with Jorlin.",
+      body: "I’m an AI application and Agent engineer who turns real-world workflows into AI systems people can actually use—from intelligent agents and knowledge retrieval to automation and reliable human-in-the-loop experiences.",
     },
   },
 };
@@ -69,7 +76,15 @@ export const copy = {
     viewCase: "查看案例",
     viewGithub: "查看 GitHub",
     openDemo: "打开演示",
+    systemPreview: "系统界面预览",
+    previewDescription: "以下为当前前端系统的真实界面。点击预览即可进入可用的演示环境。",
+    enterSystem: "进入系统",
+    publicDemoPending: "公网演示地址配置中，本地运行时仍可进入系统。",
     metrics: "可验证结果",
+    overview: "项目概览",
+    audience: "适合谁",
+    capabilities: "可以完成什么",
+    quickStart: "如何体验",
     challenge: "问题",
     approach: "做法",
     outcome: "结果",
@@ -98,7 +113,15 @@ export const copy = {
     viewCase: "View case",
     viewGithub: "View GitHub",
     openDemo: "Open demo",
+    systemPreview: "System preview",
+    previewDescription: "A real capture of the current product interface. Select the preview to enter an available demo.",
+    enterSystem: "Enter system",
+    publicDemoPending: "The public demo URL is being configured. The system remains available when running locally.",
     metrics: "Verifiable results",
+    overview: "Project overview",
+    audience: "Who it is for",
+    capabilities: "What it does",
+    quickStart: "How to explore it",
     challenge: "The challenge",
     approach: "The approach",
     outcome: "The outcome",
@@ -112,7 +135,7 @@ export const projects: Record<Language, Project[]> = {
   zh: [
     {
       slug: "securepr-agent",
-      index: "01",
+      index: "02",
       name: "SecurePR Agent",
       eyebrow: "代码安全审查与自动修复",
       summary: "让代码审查从发现风险，走到有证据的修复建议。",
@@ -122,6 +145,11 @@ export const projects: Record<Language, Project[]> = {
       accent: "copper",
       repo: "https://github.com/jorlin1101-cyber/securepr-agent",
       demo: securePrDemoUrl,
+      previewImage: "/assets/securepr-ui-preview.png",
+      audience: "需要审查代码变更、验证修复建议并保留审计过程的研发与安全团队。",
+      capabilities: ["协调多个审查角色分析 PR Diff", "基于 AST 与规则证据定位风险", "在人工确认前生成并验证修复建议"],
+      quickStart: ["选择或粘贴一段待审查的 PR Diff。", "启动审查，观察不同角色的任务状态和证据。", "查看风险、修复建议、验证结果与完整运行轨迹。"],
+      demoNote: "在线演示使用受控样例，不会修改真实代码仓库；建议先从预置案例开始。",
       metrics: [
         { label: "固定测试集 F1", value: "81.9% → 91.3%" },
         { label: "干净 PR 准确率", value: "91.7%" },
@@ -137,7 +165,7 @@ export const projects: Record<Language, Project[]> = {
     },
     {
       slug: "ai-sales-lead-crm-automation",
-      index: "02",
+      index: "03",
       name: "AI 销售线索决策与 CRM 自动化",
       eyebrow: "线索判断与客户跟进",
       summary: "把零散客户事实整理成可解释、可回放的下一步动作。",
@@ -146,6 +174,13 @@ export const projects: Record<Language, Project[]> = {
       stack: ["FastAPI", "Pydantic", "BGE-M3", "BM25 + RRF"],
       accent: "blue",
       repo: "https://github.com/jorlin1101-cyber/ai-sales-lead-crm-automation",
+      demo: salesDemoUrl,
+      localDemo: "http://127.0.0.1:8010/",
+      previewImage: "/assets/sales-ui-preview.png",
+      audience: "需要处理邮件、网站表单等线索，并希望统一判断、回复和沉淀客户信息的销售运营团队。",
+      capabilities: ["清洗并提取多渠道线索中的结构化事实", "结合规则评分与 RAG 证据生成下一步建议", "按渠道生成回复草稿，并保存多轮上下文与 CRM 记录"],
+      quickStart: ["输入一条来自邮件、网站表单或其他渠道的客户消息。", "查看事实提取、线索评分、意向判断及知识库证据。", "生成与渠道匹配的回复草稿，并补充第二轮客户消息。", "确认后将客户状态、对话摘要和下一步动作写入 CRM / Notion。"],
+      demoNote: "当前案例页展示完整使用路径与评测结果；交互版本可按 GitHub 文档在本地运行。",
       metrics: [
         { label: "标注查询 Hit@1", value: "18 / 18" },
         { label: "标注查询 Hit@3", value: "18 / 18" },
@@ -161,7 +196,7 @@ export const projects: Record<Language, Project[]> = {
     },
     {
       slug: "fincredit-copilot",
-      index: "03",
+      index: "01",
       name: "FinCredit Copilot",
       eyebrow: "住房贷款智能授信辅助",
       summary: "把材料、政策、计算和人工确认放进同一条清晰的贷款流程。",
@@ -171,6 +206,11 @@ export const projects: Record<Language, Project[]> = {
       accent: "green",
       repo: "https://github.com/jorlin1101-cyber/fincredit-copilot",
       demo: finCreditDemoUrl,
+      previewImage: "/assets/fincredit-ui-preview.png",
+      audience: "希望了解住房贷款流程的申请人，以及需要核验材料、政策和风险条件的客户经理与审批人员。",
+      capabilities: ["按角色展示申请进度、材料与待办条件", "检索全国政策和成都市地方规则并提供来源", "执行 DTI / LTV 确定性计算并保留人工审批"],
+      quickStart: ["在首页选择借款人、客户经理或审批人员身份。", "使用演示账号进入对应工作台。", "按页面提示查看材料、运行风险画像或咨询助手。", "最终授信选择始终由审批人员确认。"],
+      demoNote: "所有人员、金额和审批结果均为虚构演示数据，不构成真实贷款建议。",
       metrics: [
         { label: "政策范围", value: "全国 + 成都" },
         { label: "结果原则", value: "计算确定 · 人工确认" },
@@ -209,6 +249,26 @@ projects.en = projects.zh.map((project) => ({
     "securepr-agent": "Architecture & full-stack engineering",
     "ai-sales-lead-crm-automation": "Product design & engineering",
     "fincredit-copilot": "Product design & full-stack engineering",
+  } as Record<string, string>)[project.slug],
+  audience: ({
+    "securepr-agent": "Engineering and security teams that need to review code changes, validate proposed fixes, and preserve an auditable process.",
+    "ai-sales-lead-crm-automation": "Sales operations teams handling leads from email, web forms, and other channels that need consistent decisions, replies, and CRM records.",
+    "fincredit-copilot": "Housing-loan applicants, loan officers, and underwriters who need a clear view of documents, policy, calculations, and approval conditions.",
+  } as Record<string, string>)[project.slug],
+  capabilities: ({
+    "securepr-agent": ["Coordinate specialist reviewers over a PR diff", "Locate risks with AST and rule-based evidence", "Generate and verify repair suggestions before human approval"],
+    "ai-sales-lead-crm-automation": ["Extract typed facts from multi-channel lead messages", "Combine deterministic scoring with RAG-grounded next actions", "Draft channel-aware replies while preserving multi-turn context and CRM history"],
+    "fincredit-copilot": ["Show role-specific application progress, documents, and conditions", "Retrieve national policy and Chengdu rules with sources", "Run deterministic DTI / LTV calculations while reserving the decision for a human"],
+  } as Record<string, string[]>)[project.slug],
+  quickStart: ({
+    "securepr-agent": ["Choose or paste a PR diff to review.", "Start the run and follow each reviewer’s task state and evidence.", "Inspect findings, proposed fixes, verification results, and the run trace."],
+    "ai-sales-lead-crm-automation": ["Enter a customer message from email, a web form, or another channel.", "Review extracted facts, lead score, intent, and retrieved evidence.", "Generate a channel-appropriate draft, then add a second customer message.", "Confirm the outcome and write the customer state, summary, and next action to CRM / Notion."],
+    "fincredit-copilot": ["Choose the borrower, loan officer, or underwriter role.", "Enter the corresponding demo workspace.", "Follow the prompts to inspect documents, run a risk profile, or ask the assistant.", "Leave the final credit decision to the authorized human reviewer."],
+  } as Record<string, string[]>)[project.slug],
+  demoNote: ({
+    "securepr-agent": "The demo uses controlled examples and never changes a real repository. Start with a preset case.",
+    "ai-sales-lead-crm-automation": "This case study explains the complete user path and evaluation. Run the interactive version locally by following the GitHub guide.",
+    "fincredit-copilot": "Every person, amount, and approval outcome is fictional demo data and does not constitute lending advice.",
   } as Record<string, string>)[project.slug],
   metrics: project.metrics.map((metric) => ({
     ...metric,
