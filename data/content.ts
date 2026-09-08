@@ -34,7 +34,7 @@ const securePrDemoUrl =
 const finCreditDemoUrl =
   process.env.NEXT_PUBLIC_FINCREDIT_DEMO_URL ||
   "https://fincredit-copilot-demo.onrender.com/";
-const salesDemoUrl = process.env.NEXT_PUBLIC_SALES_DEMO_URL;
+const salesDemoUrl = process.env.NEXT_PUBLIC_SALES_DEMO_URL || "https://leadflow-sales-demo.onrender.com/";
 
 export const profile = {
   nameZh: "石卓灵",
@@ -175,22 +175,22 @@ export const projects: Record<Language, Project[]> = {
       accent: "blue",
       repo: "https://github.com/jorlin1101-cyber/ai-sales-lead-crm-automation",
       demo: salesDemoUrl,
-      localDemo: "http://127.0.0.1:8010/",
+      localDemo: "http://127.0.0.1:8011/",
       previewImage: "/assets/sales-ui-preview.png",
       audience: "需要处理邮件、网站表单等线索，并希望统一判断、回复和沉淀客户信息的销售运营团队。",
-      capabilities: ["清洗并提取多渠道线索中的结构化事实", "结合规则评分与 RAG 证据生成下一步建议", "按渠道生成回复草稿，并保存多轮上下文与 CRM 记录"],
-      quickStart: ["输入一条来自邮件、网站表单或其他渠道的客户消息。", "查看事实提取、线索评分、意向判断及知识库证据。", "生成与渠道匹配的回复草稿，并补充第二轮客户消息。", "确认后将客户状态、对话摘要和下一步动作写入 CRM / Notion。"],
-      demoNote: "当前案例页展示完整使用路径与评测结果；交互版本可按 GitHub 文档在本地运行。",
+      capabilities: ["从产品手册匹配目的地、人数和天数，展示推荐理由与证据", "保存多轮客户偏好，按邮件或聊天渠道生成回复草稿", "支持通义千问理解与草稿生成、人工审核和 CRM / Notion 同步"],
+      quickStart: ["进入系统，输入例如：4个人想去云南玩7天，请推荐产品。", "查看产品推荐、适配理由和产品手册来源。", "在同一对话补充酒店等级、用车需求和导游语言，检查更新后的回复。", "公网访客仅体验隔离演示；真实模型与 Notion 写入需受保护的运营配置。"],
+      demoNote: "公网版本使用离线手册检索与规则回复，不调用付费 LLM，也不写入真实 Notion。免费服务首次打开可能较慢；演示记录可能随服务重启清空，请勿提交真实客户隐私。",
       metrics: [
         { label: "标注查询 Hit@1", value: "18 / 18" },
         { label: "标注查询 Hit@3", value: "18 / 18" },
-        { label: "测试通过", value: "577 项" },
+        { label: "测试通过", value: "699 项" },
       ],
       caseStudy: {
         context: "面向销售线索、评分与客户跟进场景，建立从数据清洗到 CRM 路由的端到端决策原型。",
         challenge: "客户信息分散在文本、表单和历史记录中，模型如果直接给建议，难以追溯事实来源和判断依据。",
-        approach: ["使用 FastAPI / Pydantic 建立强类型数据链路，LLM 只负责提取结构化事实。", "对 H2 文档切分 47 个 Chunk，融合 BGE-M3、BM25 与 RRF 进行检索。", "将建议绑定 Top-3 证据、Reason Code 和未知状态，阻断注入与结构异常。"],
-        outcome: "在 18 条人工标注查询上，Hit@1 与 Hit@3 均为 18 / 18，完成 577 项测试并达到 95% 覆盖率。",
+        approach: ["使用 FastAPI / Pydantic 管理结构化事实与多轮状态；通义千问支持事实理解和有据草稿生成，规则负责最终产品约束。", "支持 BGE-M3、BM25 与 RRF 检索；公开演示采用无需外部模型的 keyword-RRF，产品信息来自同一手册快照。", "保留产品来源、适配限制与人工确认；支持 PostgreSQL 持久化和可重试 CRM 同步，访客禁止真实外部写入。"],
+        outcome: "既有 18 条人工标注检索查询中，Hit@1 与 Hit@3 均为 18 / 18；本次回归 699 项测试通过，2 项 PostgreSQL 测试因本地未配置数据库跳过，覆盖率 95.21%。",
         constraints: "评测规模较小，结果用于验证方案可行性；真实部署仍需补充更多行业数据和人工复核。",
       },
     },
@@ -257,17 +257,17 @@ projects.en = projects.zh.map((project) => ({
   } as Record<string, string>)[project.slug],
   capabilities: ({
     "securepr-agent": ["Coordinate specialist reviewers over a PR diff", "Locate risks with AST and rule-based evidence", "Generate and verify repair suggestions before human approval"],
-    "ai-sales-lead-crm-automation": ["Extract typed facts from multi-channel lead messages", "Combine deterministic scoring with RAG-grounded next actions", "Draft channel-aware replies while preserving multi-turn context and CRM history"],
+    "ai-sales-lead-crm-automation": ["Match products from manuals with evidence and fit constraints", "Preserve customer preferences across turns and draft channel-aware replies", "Support Qwen-grounded drafting, human review, and CRM / Notion synchronization"],
     "fincredit-copilot": ["Show role-specific application progress, documents, and conditions", "Retrieve national policy and Chengdu rules with sources", "Run deterministic DTI / LTV calculations while reserving the decision for a human"],
   } as Record<string, string[]>)[project.slug],
   quickStart: ({
     "securepr-agent": ["Choose or paste a PR diff to review.", "Start the run and follow each reviewer’s task state and evidence.", "Inspect findings, proposed fixes, verification results, and the run trace."],
-    "ai-sales-lead-crm-automation": ["Enter a customer message from email, a web form, or another channel.", "Review extracted facts, lead score, intent, and retrieved evidence.", "Generate a channel-appropriate draft, then add a second customer message.", "Confirm the outcome and write the customer state, summary, and next action to CRM / Notion."],
+    "ai-sales-lead-crm-automation": ["Enter a request such as: Recommend a 7-day Yunnan trip for four people.", "Review the recommended product, fit reasons, and manual evidence.", "Add hotel, vehicle, and guide preferences in the same conversation and review the updated reply.", "Public visitors use an isolated demo; live models and Notion delivery require protected operator configuration."],
     "fincredit-copilot": ["Choose the borrower, loan officer, or underwriter role.", "Enter the corresponding demo workspace.", "Follow the prompts to inspect documents, run a risk profile, or ask the assistant.", "Leave the final credit decision to the authorized human reviewer."],
   } as Record<string, string[]>)[project.slug],
   demoNote: ({
     "securepr-agent": "The demo uses controlled examples and never changes a real repository. Start with a preset case.",
-    "ai-sales-lead-crm-automation": "This case study explains the complete user path and evaluation. Run the interactive version locally by following the GitHub guide.",
+    "ai-sales-lead-crm-automation": "The public demo uses offline manual retrieval and rule-based replies, with no paid LLM calls or real Notion writes. Free hosting may start slowly and demo records may reset after a restart. Do not enter real customer data.",
     "fincredit-copilot": "Every person, amount, and approval outcome is fictional demo data and does not constitute lending advice.",
   } as Record<string, string>)[project.slug],
   metrics: project.metrics.map((metric) => ({
@@ -298,12 +298,12 @@ projects.en = projects.zh.map((project) => ({
     } as Record<string, string>)[project.slug],
     approach: ({
       "securepr-agent": ["A Runtime Harness manages task state, token / time budgets, checkpoints, and resume-from-breakpoint.", "Lead, Specialists, Critic, Fixer, and Verifier form a review-and-repair loop.", "Prompt / Skill versions pass through Validation and Holdout gates for deduplication, audit, and rollback."],
-      "ai-sales-lead-crm-automation": ["FastAPI / Pydantic create a typed data path; the LLM only extracts structured facts.", "47 H2 document chunks are searched with BGE-M3, BM25, and RRF.", "Recommendations are bound to Top-3 evidence, Reason Codes, and unknown states."],
+      "ai-sales-lead-crm-automation": ["FastAPI / Pydantic manage typed facts and conversation state; Qwen supports understanding and grounded drafting, with deterministic product constraints.", "BGE-M3, BM25, and RRF retrieval are supported; the public demo uses offline keyword-RRF and the same product manual snapshot.", "Evidence, fit constraints, human review, PostgreSQL persistence, and retryable CRM delivery are supported; public visitors cannot perform real external writes."],
       "fincredit-copilot": ["Documents, Chinese statuses, approval conditions, and disclosure acknowledgements become one continuous flow.", "National policy and Chengdu rules are managed separately, with scope and sources shown in answers.", "Deterministic logic owns DTI / LTV calculations; the agent explains and guides."],
     } as Record<string, string[]>)[project.slug],
     outcome: ({
       "securepr-agent": "On 100 synthetic, controlled PR diffs, reproducible risk-identification F1 improved from 81.9% to 91.3%.",
-      "ai-sales-lead-crm-automation": "On 18 human-labeled queries, Hit@1 and Hit@3 both reached 18 / 18, with 577 tests passing and 95% coverage.",
+      "ai-sales-lead-crm-automation": "The existing 18-query retrieval evaluation reached 18 / 18 Hit@1 and Hit@3. The latest regression passed 699 tests with 95.21% coverage; two PostgreSQL tests were skipped without a local database.",
       "fincredit-copilot": "Delivered role-based demo interfaces for borrowers, loan officers, and underwriters, centered on policy evidence, deterministic calculations, and human confirmation.",
     } as Record<string, string>)[project.slug],
     constraints: ({
