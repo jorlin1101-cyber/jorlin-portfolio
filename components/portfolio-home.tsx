@@ -90,7 +90,7 @@ const portfolioCopy = {
       hint: "This opens your default email app. Review the draft and send it there.",
       alternative: "You can also copy this address:",
     },
-    footer: "Designed and built by Jorlin Shi.", photo: "Portrait coming soon", resume: "Detailed résumé", resumeShort: "One-page résumé",
+    footer: "Designed and built by Jorlin Shi.", photo: "Portrait coming soon", resume: "Detailed résumé",
     theme: "Toggle theme", language: "切换到中文",
     experiences: [
       { period: "Apr 2026 — Present", company: "Independent AI Product Practice", role: "AI Application & Agent Engineer", detail: "Owned the path from problem framing and architecture to interface design, evaluation, and reproducible delivery across three public AI systems.", highlights: ["Built a resumable agent runtime with budgets, checkpoints, specialist review, and human validation.", "Implemented hybrid RAG with BGE-M3, BM25, RRF, grounded generation, and retrieval evaluation.", "Connected typed APIs, multi-turn state, CRM automation, observability, and product-facing interfaces."], tags: ["LLM Agents", "RAG", "Evaluation", "Full-stack"] },
@@ -162,7 +162,7 @@ const portfolioCopy = {
       hint: "将打开你的默认邮件应用，请在应用中确认并发送邮件。",
       alternative: "也可以直接复制邮箱：",
     },
-    footer: "由石卓灵设计与开发。", photo: "职业照稍后更新", resume: "完整简历", resumeShort: "一页投递版",
+    footer: "由石卓灵设计与开发。", photo: "职业照稍后更新", resume: "完整简历",
     theme: "切换明暗主题", language: "Switch to English",
     experiences: [
       { period: "2026.04 — 至今", company: "个人 AI 产品实践", role: "AI 应用与 Agent 工程师", detail: "独立负责问题定义、架构设计、交互实现、效果评测与可复现交付，完成三个公开 AI 系统。", highlights: ["构建支持预算控制、检查点、专业角色审查与人工确认的可恢复 Agent Runtime。", "实现融合 BGE-M3、BM25、RRF、Grounded Generation 与检索评测的混合 RAG 链路。", "打通强类型 API、多轮状态、CRM 自动化、可观测性与面向用户的产品界面。"], tags: ["LLM Agent", "RAG", "评测", "全栈开发"] },
@@ -262,7 +262,6 @@ export function PortfolioHome({ initialLanguage = "zh" }: { initialLanguage?: La
         <div className="content-column">
           <section className="mobile-profile reveal-card"><div className="mobile-photo"><img src="/assets/profile-photo-natural.jpg" alt={language === "zh" ? "石卓灵职业形象照" : "Professional portrait of Jorlin Shi"} /></div><div><h1>{name}</h1><p>{ui.profileDescription}</p></div></section>
           <section className="hero-panel section-block"><p className="hero-intro">{ui.heroLead}</p><h2 className="display-heading"><span>{ui.titleSolid}</span><em>{ui.titleGhost}</em></h2>
-            <div className="resume-downloads"><a href="/resume-public.pdf" target="_blank" rel="noreferrer"><FileText size={16} />{ui.resume}</a><a href="/resume-concise.pdf" target="_blank" rel="noreferrer"><FileText size={16} />{ui.resumeShort}</a></div>
             <div className="stats-grid"><div><strong>3</strong><span>{ui.statProjects}</span></div><div><strong>3</strong><span>{ui.statDomains}</span></div><div><strong>3</strong><span>{ui.statRepos}</span></div></div>
             <div className="ribbon-row" aria-label={language === "zh" ? "核心能力" : "Core capabilities"}>
               {ui.ribbonItems.map((item) => <span key={item}>{item}</span>)}
