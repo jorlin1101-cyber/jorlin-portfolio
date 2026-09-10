@@ -6,7 +6,6 @@ import {
   Bot,
   BriefcaseBusiness,
   ChartNoAxesCombined,
-  Clock3,
   Code2,
   Database,
   FileText,
@@ -39,7 +38,7 @@ const projectOrder = ["fincredit-copilot", "securepr-agent", "ai-sales-lead-crm-
 
 const portfolioCopy = {
   en: {
-    nav: ["Home", "Projects", "Experience", "Tools", "Thoughts"],
+    nav: ["Home", "Projects", "Experience", "Tools", "Case studies"],
     profileDescription: "AI application and Agent engineer turning real-world workflows into AI systems people can actually use.",
     availability: "Open to AI application & agent roles",
     heroLead: "Coding with Jorlin. I build intelligent agents, knowledge retrieval, workflow automation, and reliable human-in-the-loop experiences.",
@@ -47,7 +46,7 @@ const portfolioCopy = {
     titleGhost: "ENGINEER",
     statProjects: "PROJECTS SHIPPED",
     statDomains: "APPLIED AI DOMAINS",
-    statRepos: "PUBLIC REPOSITORIES",
+    statRepos: "OPEN-SOURCE APPS",
     ribbonItems: ["AGENTS, RETRIEVAL, EVALUATION", "PYTHON, FASTAPI, NEXT.JS, RAG"],
     projectsSolid: "RECENT",
     projectsGhost: "PROJECTS",
@@ -76,30 +75,33 @@ const portfolioCopy = {
     recognitionTitle: "Selected recognition",
     toolsSolid: "CORE",
     toolsGhost: "STACK",
-    thoughtsSolid: "BUILD",
-    thoughtsGhost: "NOTES",
-    notesLabel: "Engineering note",
+    thoughtsSolid: "PROJECT",
+    thoughtsGhost: "CASE STUDIES",
+    notesLabel: "Project case study",
     readMore: "Read case study",
     contactSolid: "LET’S WORK",
     contactGhost: "TOGETHER",
-    contactIntro: "Have a role, a project, or an awkward workflow that might benefit from AI? Send me a note.",
+    contactIntro: "For roles, projects, or feedback, contact me by email.",
     form: {
       name: "Name", email: "Email", topic: "Topic", message: "Message",
       namePlaceholder: "Your name", emailPlaceholder: "you@example.com", topicPlaceholder: "Select a topic",
       topics: ["Job opportunity", "Project collaboration", "Portfolio feedback", "Just saying hello"],
-      messagePlaceholder: "Tell me a little about what you have in mind…", submit: "Send message",
+      messagePlaceholder: "Tell me a little about what you have in mind…", submit: "Open email app",
+      hint: "This opens your default email app. Review the draft and send it there.",
+      alternative: "You can also copy this address:",
     },
-    footer: "Designed and built by Jorlin Shi.", photo: "Portrait coming soon", resume: "Résumé",
+    footer: "Designed and built by Jorlin Shi.", photo: "Portrait coming soon", resume: "Detailed résumé", resumeShort: "One-page résumé",
     theme: "Toggle theme", language: "切换到中文",
     experiences: [
       { period: "Apr 2026 — Present", company: "Independent AI Product Practice", role: "AI Application & Agent Engineer", detail: "Owned the path from problem framing and architecture to interface design, evaluation, and reproducible delivery across three public AI systems.", highlights: ["Built a resumable agent runtime with budgets, checkpoints, specialist review, and human validation.", "Implemented hybrid RAG with BGE-M3, BM25, RRF, grounded generation, and retrieval evaluation.", "Connected typed APIs, multi-turn state, CRM automation, observability, and product-facing interfaces."], tags: ["LLM Agents", "RAG", "Evaluation", "Full-stack"] },
-      { period: "Jul 2025 — Jan 2026", company: "Simulation & Modeling", role: "Simulation Modeling Engineer", detail: "Translated engineering requirements into executable models and validation workflows, building the systems mindset now applied to reliable AI products.", highlights: ["Developed and validated C++ / Python integration interfaces for simulation workflows.", "Built Simulink / Stateflow models and supported verification against expected behavior.", "Worked across requirements, implementation, debugging, and delivery rather than treating modeling as an isolated artifact."], tags: ["C++", "Python", "Simulink", "Stateflow", "Validation"] },
+      { period: "Jul 2025 — Jan 2026", company: "北京润科通用有限公司", role: "Simulation Modeling Engineer", detail: "Translated engineering requirements into executable models and validation workflows, building the systems mindset now applied to reliable AI products.", highlights: ["Developed and validated C++ / Python integration interfaces for simulation workflows.", "Built Simulink / Stateflow models and supported verification against expected behavior.", "Worked across requirements, implementation, debugging, and delivery rather than treating modeling as an isolated artifact."], tags: ["C++", "Python", "Simulink", "Stateflow", "Validation"] },
+      { period: "Jun 2023 — Jun 2025", company: "University of Electronic Science and Technology of China", role: "Research · Physics-guided AI Modeling", detail: "Combined physical priors with data-driven models to predict satellite / free-space optical communication performance.", highlights: ["Built simulation data pipelines in MATLAB and learned model residuals with neural networks.", "Reduced mean power-prediction error from 15.1% to 8.7%, with R² of 0.95; conditional flow modeling reduced per-case inference time from 12.5 s to 3 s."], tags: ["Physics-guided ML", "MATLAB", "Model evaluation"] },
     ],
     recognitions: [
       { title: "Outstanding Graduate Student", detail: "Graduate Academic Scholarship · Second Class" },
       { title: "Provincial First Prize", detail: "China Undergraduate Mathematical Contest in Modeling" },
       { title: "MCM Honorable Mention", detail: "Team captain" },
-      { title: "Research & Innovation", detail: "1 EI-indexed first-author paper · 1 invention patent application (second inventor)" },
+      { title: "Research & Innovation", detail: "1 EI-indexed first-author paper · 1 invention patent application (second inventor; supervisor first)" },
     ],
     stack: [
       ["LLM & Context Engineering", "Model APIs · prompting · structured output · tool calling"],
@@ -114,19 +116,18 @@ const portfolioCopy = {
       ["Delivery", "Docker · CI checks · reproducible local and public demos"],
     ],
     notes: [
-      { minutes: "9 min read", title: "A reliable agent needs a runtime, not just a better prompt", body: "A practical architecture for long-running agents: explicit state, token and time budgets, idempotent tools, checkpoints, retries, and validation gates. The key question is not whether an agent can finish once, but whether a failed run can be explained, resumed, and evaluated without repeating completed work.", topics: ["Durable execution", "Checkpoint", "HITL"], slug: "securepr-agent" },
-      { minutes: "10 min read", title: "Hybrid retrieval is only useful when you can measure the retrieval", body: "Why dense vectors and BM25 fail in different ways, how reciprocal rank fusion combines them without pretending their scores are comparable, and how Hit@k, MRR, nDCG, citation coverage, and answer faithfulness reveal different failure modes in a small production-minded RAG system.", topics: ["BGE-M3", "BM25 + RRF", "RAG evaluation"], slug: "ai-sales-lead-crm-automation" },
-      { minutes: "8 min read", title: "Designing multi-turn agents without duplicating messages or losing context", body: "A conversation is not a single request. This note separates conversation IDs, message IDs, and idempotency keys; models a PostgreSQL-backed event history; controls context windows; and uses a transactional handoff so CRM or Notion writes remain replayable instead of becoming hidden side effects.", topics: ["PostgreSQL", "Idempotency", "Memory"], slug: "ai-sales-lead-crm-automation" },
-      { minutes: "9 min read", title: "Where the LLM should stop in a high-stakes lending workflow", body: "An engineering boundary for financial AI: use retrieval for policy evidence and language models for explanation, but keep DTI / LTV calculations, policy versions, approval permissions, and final decisions in deterministic and auditable components with explicit human checkpoints.", topics: ["Rule engine", "Evidence", "Human approval"], slug: "fincredit-copilot" },
+      { title: "SecurePR Agent", body: "PR review and repair: resumable runtime, specialist review, evidence, validation gates, and controlled evaluation.", topics: ["Runtime", "Code review", "Evaluation"], slug: "securepr-agent" },
+      { title: "AI Sales Lead Decision & CRM Automation", body: "Lead interpretation and follow-up: hybrid retrieval, persistent conversations, grounded drafts, and human-reviewed CRM delivery.", topics: ["Hybrid retrieval", "Conversation state", "CRM"], slug: "ai-sales-lead-crm-automation" },
+      { title: "FinCredit Copilot", body: "Housing-loan assistance: document checks, policy evidence, deterministic DTI/LTV calculations, and human confirmation.", topics: ["Policy retrieval", "Evidence", "Human approval"], slug: "fincredit-copilot" },
     ],
   },
   zh: {
-    nav: ["首页", "项目", "经历", "工具", "笔记"],
+    nav: ["首页", "项目", "经历", "工具", "复盘"],
     profileDescription: "AI 应用与 Agent 工程师，致力于把真实业务流程变成真正可用的 AI 系统。",
     availability: "正在寻找 AI 应用与 Agent 方向机会",
     heroLead: "和 Jorlin 一起，把 AI 想法变成真正可用的产品。我从真实业务问题出发，构建融合智能体、知识检索、流程自动化与人工协作的 AI 系统。",
     titleSolid: "AI 应用", titleGhost: "工程师",
-    statProjects: "个已完成项目", statDomains: "类 AI 应用场景", statRepos: "个公开代码仓库",
+    statProjects: "个已完成项目", statDomains: "类 AI 应用场景", statRepos: "个开源应用项目",
     ribbonItems: ["Agent 编排", "RAG 检索", "评测体系", "全栈交付"],
     projectsSolid: "近期", projectsGhost: "项目",
     projectIntro: "围绕代码安全、销售运营和金融决策辅助，完成三个端到端 AI 系统。",
@@ -150,26 +151,29 @@ const portfolioCopy = {
     bachelorLocation: "中国 · 成都",
     bachelorTags: ["双一流"],
     recognitionTitle: "个人成果与奖项",
-    thoughtsSolid: "构建", thoughtsGhost: "笔记", notesLabel: "工程笔记", readMore: "查看项目复盘",
+    thoughtsSolid: "项目", thoughtsGhost: "复盘", notesLabel: "项目案例", readMore: "查看完整案例",
     contactSolid: "一起", contactGhost: "聊聊",
-    contactIntro: "如果你有合适的岗位、项目，或者一个可能被 AI 改善的麻烦流程，欢迎给我留言。",
+    contactIntro: "如果你有合适的岗位、项目或作品集建议，欢迎通过邮件联系我。",
     form: {
       name: "姓名", email: "邮箱", topic: "联系主题", message: "留言",
       namePlaceholder: "你的姓名", emailPlaceholder: "you@example.com", topicPlaceholder: "请选择联系主题",
       topics: ["工作机会", "项目合作", "作品集建议", "只是打个招呼"],
-      messagePlaceholder: "简单介绍一下你想聊的事情……", submit: "发送邮件",
+      messagePlaceholder: "简单介绍一下你想聊的事情……", submit: "打开邮件应用",
+      hint: "将打开你的默认邮件应用，请在应用中确认并发送邮件。",
+      alternative: "也可以直接复制邮箱：",
     },
-    footer: "由石卓灵设计与开发。", photo: "职业照稍后更新", resume: "个人简历",
+    footer: "由石卓灵设计与开发。", photo: "职业照稍后更新", resume: "完整简历", resumeShort: "一页投递版",
     theme: "切换明暗主题", language: "Switch to English",
     experiences: [
       { period: "2026.04 — 至今", company: "个人 AI 产品实践", role: "AI 应用与 Agent 工程师", detail: "独立负责问题定义、架构设计、交互实现、效果评测与可复现交付，完成三个公开 AI 系统。", highlights: ["构建支持预算控制、检查点、专业角色审查与人工确认的可恢复 Agent Runtime。", "实现融合 BGE-M3、BM25、RRF、Grounded Generation 与检索评测的混合 RAG 链路。", "打通强类型 API、多轮状态、CRM 自动化、可观测性与面向用户的产品界面。"], tags: ["LLM Agent", "RAG", "评测", "全栈开发"] },
-      { period: "2025.07 — 2026.01", company: "仿真与建模", role: "仿真建模工程师", detail: "将工程需求转化为可执行模型和验证流程，并把系统化建模思维延伸到可靠 AI 产品开发中。", highlights: ["开发并验证面向仿真流程的 C++ / Python 跨语言集成接口。", "使用 Simulink / Stateflow 构建模型，并依据预期行为完成验证与问题定位。", "覆盖需求理解、实现、调试和交付支持，而不是把模型作为孤立产物。"], tags: ["C++", "Python", "Simulink", "Stateflow", "验证"] },
+      { period: "2025.07 — 2026.01", company: "北京润科通用有限公司", role: "仿真建模工程师", detail: "将工程需求转化为可执行模型和验证流程，并把系统化建模思维延伸到可靠 AI 产品开发中。", highlights: ["开发并验证面向仿真流程的 C++ / Python 跨语言集成接口。", "使用 Simulink / Stateflow 构建模型，并依据预期行为完成验证与问题定位。", "覆盖需求理解、实现、调试和交付支持，而不是把模型作为孤立产物。"], tags: ["C++", "Python", "Simulink", "Stateflow", "验证"] },
+      { period: "2023.06 — 2025.06", company: "电子科技大学", role: "科研 · 物理模型引导的 AI 建模", detail: "面向卫星 / 自由空间光通信链路，结合物理先验与数据驱动模型开展性能预测。", highlights: ["基于 MATLAB 仿真搭建训练数据流水线，以残差网络学习理论模型与仿真的偏差。", "平均功率预测误差由 15.1% 降至 8.7%，R² 达 0.95；条件流模型将单工况推理耗时由 12.5 s 降至 3 s。"], tags: ["物理先验", "MATLAB", "模型评测"] },
     ],
     recognitions: [
       { title: "优秀研究生", detail: "研究生学业二等奖学金" },
       { title: "省一等奖", detail: "全国大学生数学建模竞赛" },
       { title: "MCM H 奖", detail: "美国大学生数学建模竞赛 · 队长" },
-      { title: "科研与创新", detail: "EI 期刊第一作者论文 1 篇 · 发明专利申请 1 项（第二发明人）" },
+      { title: "科研与创新", detail: "EI 期刊第一作者论文 1 篇 · 发明专利申请 1 项（第二发明人，导师第一）" },
     ],
     stack: [
       ["LLM 与上下文工程", "模型 API · Prompt · 结构化输出 · 工具调用"],
@@ -184,10 +188,9 @@ const portfolioCopy = {
       ["交付部署", "Docker · CI 检查 · 可复现本地与公网演示"],
     ],
     notes: [
-      { minutes: "约 9 分钟", title: "可靠的 Agent 需要 Runtime，而不只是更聪明的 Prompt", body: "从显式状态、Token 与时间预算、幂等工具、Checkpoint、重试到验证门禁，拆解长流程 Agent 的工程骨架。真正需要回答的不是“它能否成功一次”，而是失败能否解释、是否能从断点继续，以及如何避免重复执行已经完成的步骤。", topics: ["持久化执行", "检查点", "人工确认"], slug: "securepr-agent" },
-      { minutes: "约 10 分钟", title: "混合检索的价值，必须通过评测才能成立", body: "分析向量检索与 BM25 各自容易漏掉什么，RRF 为什么能在不直接比较分数的情况下融合排序，以及 Hit@k、MRR、nDCG、引用覆盖率和答案忠实度分别能暴露 RAG 链路中的哪一种失败。", topics: ["BGE-M3", "BM25 + RRF", "RAG 评测"], slug: "ai-sales-lead-crm-automation" },
-      { minutes: "约 8 分钟", title: "怎样让多轮 Agent 既不丢上下文，也不重复处理消息", body: "区分 conversation_id、message_id 与 idempotency_key，用 PostgreSQL 保存可回放的对话事件，控制上下文窗口，并通过事务化交接让 CRM / Notion 写入可重试、可追踪，而不是藏在模型调用后的不可控副作用里。", topics: ["PostgreSQL", "幂等", "对话记忆"], slug: "ai-sales-lead-crm-automation" },
-      { minutes: "约 9 分钟", title: "在高风险住房贷款流程中，大模型应该在哪里停下来", body: "给金融 AI 划定工程边界：政策依据交给检索，解释与引导交给大模型；DTI / LTV、政策版本、审批权限和最终决定则保留在确定性、可审计的组件中，并设置明确的人工检查点。", topics: ["规则引擎", "证据链", "人工审批"], slug: "fincredit-copilot" },
+      { title: "SecurePR Agent", body: "PR 风险审查与修复：围绕可恢复 Runtime、多角色审查、证据复核、验证门禁与受控评测展开项目复盘。", topics: ["运行恢复", "代码审查", "评测"], slug: "securepr-agent" },
+      { title: "AI 销售线索决策与 CRM 自动化", body: "从线索理解到客户跟进：说明混合检索、多轮状态、有据草稿与人工审核后的 CRM 同步如何组成完整流程。", topics: ["混合检索", "对话状态", "CRM"], slug: "ai-sales-lead-crm-automation" },
+      { title: "FinCredit Copilot", body: "住房金融授信辅助：展示材料核验、政策证据、DTI/LTV 确定性计算与人工确认的设计边界。", topics: ["政策检索", "证据", "人工审批"], slug: "fincredit-copilot" },
     ],
   },
 };
@@ -196,8 +199,8 @@ function scrollToSection(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
-export function PortfolioHome() {
-  const [language, setLanguage] = useState<Language>("en");
+export function PortfolioHome({ initialLanguage = "zh" }: { initialLanguage?: Language }) {
+  const [language, setLanguage] = useState<Language>(initialLanguage);
   const [theme, setTheme] = useState<Theme>("light");
   const [activeSection, setActiveSection] = useState("home");
   const ui = portfolioCopy[language];
@@ -206,10 +209,7 @@ export function PortfolioHome() {
   );
   const name = language === "zh" ? profile.nameZh : profile.nameEn;
 
-  useEffect(() => {
-    if (new URLSearchParams(window.location.search).get("lang") === "zh") setLanguage("zh");
-  }, []);
-  useEffect(() => { document.documentElement.lang = language === "zh" ? "zh-CN" : "en"; }, [language]);
+  useEffect(() => { document.documentElement.lang = language === "zh" ? "zh-CN" : "en"; const url = new URL(window.location.href); url.searchParams.set("lang", language); window.history.replaceState(null, "", url); }, [language]);
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
@@ -262,6 +262,7 @@ export function PortfolioHome() {
         <div className="content-column">
           <section className="mobile-profile reveal-card"><div className="mobile-photo"><img src="/assets/profile-photo-natural.jpg" alt={language === "zh" ? "石卓灵职业形象照" : "Professional portrait of Jorlin Shi"} /></div><div><h1>{name}</h1><p>{ui.profileDescription}</p></div></section>
           <section className="hero-panel section-block"><p className="hero-intro">{ui.heroLead}</p><h2 className="display-heading"><span>{ui.titleSolid}</span><em>{ui.titleGhost}</em></h2>
+            <div className="resume-downloads"><a href="/resume-public.pdf" target="_blank" rel="noreferrer"><FileText size={16} />{ui.resume}</a><a href="/resume-concise.pdf" target="_blank" rel="noreferrer"><FileText size={16} />{ui.resumeShort}</a></div>
             <div className="stats-grid"><div><strong>3</strong><span>{ui.statProjects}</span></div><div><strong>3</strong><span>{ui.statDomains}</span></div><div><strong>3</strong><span>{ui.statRepos}</span></div></div>
             <div className="ribbon-row" aria-label={language === "zh" ? "核心能力" : "Core capabilities"}>
               {ui.ribbonItems.map((item) => <span key={item}>{item}</span>)}
@@ -325,11 +326,11 @@ export function PortfolioHome() {
           <section className="section-block" id="tools"><h2 className="section-title"><span>{ui.toolsSolid}</span> <em>{ui.toolsGhost}</em></h2><div className="stack-grid">{ui.stack.map(([title, description], index) => { const Icon = stackIcons[index % stackIcons.length]; return <article className="stack-card tilt-card" key={title}><Icon size={22} /><div><h3>{title}</h3><p>{description}</p></div></article>; })}</div></section>
 
           <section className="section-block" id="thoughts"><h2 className="section-title"><span>{ui.thoughtsSolid}</span> <em>{ui.thoughtsGhost}</em></h2><div className="notes-grid">{ui.notes.map((note) => (
-            <Link href={`/projects/${note.slug}?lang=${language}`} className="note-card tilt-card" key={`${note.slug}-${note.title}`}><div className="note-meta"><span>{ui.notesLabel}</span><span>·</span><Clock3 size={13} /><span>{note.minutes}</span></div><h3>{note.title}</h3><p>{note.body}</p><div className="note-topics">{note.topics.map((topic) => <span key={topic}>{topic}</span>)}</div><div className="read-more">{ui.readMore}<ArrowUpRight size={15} /></div></Link>
+            <Link href={`/projects/${note.slug}?lang=${language}`} className="note-card tilt-card" key={`${note.slug}-${note.title}`}><div className="note-meta"><span>{ui.notesLabel}</span></div><h3>{note.title}</h3><p>{note.body}</p><div className="note-topics">{note.topics.map((topic) => <span key={topic}>{topic}</span>)}</div><div className="read-more">{ui.readMore}<ArrowUpRight size={15} /></div></Link>
           ))}</div></section>
 
           <section className="section-block contact-section" id="contact"><h2 className="section-title"><span>{ui.contactSolid}</span> <em>{ui.contactGhost}</em></h2><p className="contact-intro">{ui.contactIntro}</p>
-            <form className="contact-form" onSubmit={submitContact}><div className="form-grid"><label>{ui.form.name}<input name="name" type="text" placeholder={ui.form.namePlaceholder} required /></label><label>{ui.form.email}<input name="email" type="email" placeholder={ui.form.emailPlaceholder} required /></label></div><label>{ui.form.topic}<select name="topic" defaultValue="" required><option value="" disabled>{ui.form.topicPlaceholder}</option>{ui.form.topics.map((topic) => <option key={topic}>{topic}</option>)}</select></label><label>{ui.form.message}<textarea name="message" rows={5} placeholder={ui.form.messagePlaceholder} required /></label><button type="submit" className="submit-button"><Send size={16} />{ui.form.submit}</button></form>
+            <form className="contact-form" onSubmit={submitContact}><div className="form-grid"><label>{ui.form.name}<input name="name" type="text" placeholder={ui.form.namePlaceholder} required /></label><label>{ui.form.email}<input name="email" type="email" placeholder={ui.form.emailPlaceholder} required /></label></div><label>{ui.form.topic}<select name="topic" defaultValue="" required><option value="" disabled>{ui.form.topicPlaceholder}</option>{ui.form.topics.map((topic) => <option key={topic}>{topic}</option>)}</select></label><label>{ui.form.message}<textarea name="message" rows={5} placeholder={ui.form.messagePlaceholder} required /></label><p className="contact-help" id="contact-help">{ui.form.hint}</p><p className="contact-email">{ui.form.alternative} <a href={`mailto:${profile.email}`}>{profile.email}</a></p><button type="submit" className="submit-button" aria-describedby="contact-help"><Send size={16} />{ui.form.submit}</button></form>
           </section>
           <footer className="reference-footer">© 2026 {name} · <a href={profile.github} target="_blank" rel="noreferrer">GitHub</a> · <a href={`mailto:${profile.email}`}>{profile.email}</a><span>{ui.footer}</span></footer>
         </div>
