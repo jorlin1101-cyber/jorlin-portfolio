@@ -266,7 +266,7 @@ export function PortfolioHome({ initialLanguage = "zh" }: { initialLanguage?: La
             </div>
           </section>
 
-          <section className="section-block" id="projects"><div className="section-title-row"><div><h2 className="section-title"><span>{ui.projectsSolid}</span> <em>{ui.projectsGhost}</em></h2><p>{ui.projectIntro}</p></div><span className="section-count">03</span></div>
+          <section className="section-block" id="projects"><div className="section-title-row"><div><h2 className="section-title"><span>{ui.projectsSolid}</span> <em>{ui.projectsGhost}</em></h2><p>{ui.projectIntro}</p></div></div>
             <div className="reference-project-grid">{list.map((project) => {
               const primaryHref = `/projects/${project.slug}?lang=${language}`;
               return (
@@ -310,13 +310,14 @@ export function PortfolioHome({ initialLanguage = "zh" }: { initialLanguage?: La
                 </div></div>
                 <strong>EDU</strong>
               </article>
-              <div className="recognition-panel">
-                <div className="recognition-heading"><Trophy size={19} /><h3>{ui.recognitionTitle}</h3></div>
+              <article className="education-card recognition-panel tilt-card">
+                <div className="education-icon"><Trophy size={28} /></div>
+                <div className="education-copy"><span>{ui.recognitionTitle}</span>
                 <div className="recognition-list">{ui.recognitions.map((item, index) => {
                   const Icon = index === 3 ? Lightbulb : Medal;
                   return <article className="recognition-row" key={item.title}><Icon size={18} /><div><h4>{item.title}</h4><p>{item.detail}</p></div></article>;
-                })}</div>
-              </div>
+                })}</div></div>
+              </article>
             </div>
           </section>
 
