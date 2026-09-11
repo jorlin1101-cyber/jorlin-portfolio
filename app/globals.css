@@ -208,6 +208,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .eyebrow { color: var(--accent); font-size: .76rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
 .detail-hero h1 { margin: 22px 0 0; font: 900 clamp(2rem, 8cqw, 6.5rem)/1.15 var(--font-display); letter-spacing: -.055em; }
 .project-ai-sales-lead-crm-automation .detail-hero h1 { font-size: clamp(1.7rem, 5.3cqw, 3.7rem); letter-spacing: -.035em; }
+.project-ai-sales-lead-crm-automation.lang-en .detail-hero h1 { font-size: clamp(1.7rem, 4.2cqw, 3rem); }
 .detail-summary { max-width: none; margin: 26px 0 0; color: var(--muted); font-size: clamp(1rem, 1.5vw, 1.2rem); line-height: 1.75; }
 .project-detail-page.lang-zh .eyebrow, .project-detail-page.lang-zh .orientation-heading > span, .project-detail-page.lang-zh .detail-section h2 { font-size: clamp(1rem, 1.55vw, 1.2rem); line-height: 1.5; letter-spacing: .06em; }
 .detail-actions { display: flex; gap: 10px; margin-top: 28px; }
