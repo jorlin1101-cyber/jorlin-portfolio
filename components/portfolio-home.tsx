@@ -56,7 +56,6 @@ const portfolioCopy = {
     caseStudy: "Case study",
     experienceSolid: "MY",
     experienceGhost: "EXPERIENCE",
-    experienceIntro: "A compact record of the problems I owned, the systems I built, and the evidence that the work held up.",
     educationSolid: "EDUCATION",
     educationGhost: "& RECOGNITION",
     educationLabel: "Academic background",
@@ -135,7 +134,6 @@ const portfolioCopy = {
     sourceCode: "查看源码",
     caseStudy: "查看项目详情",
     experienceSolid: "我的", experienceGhost: "经历", toolsSolid: "核心", toolsGhost: "技术栈",
-    experienceIntro: "不只列出做过什么，也说明我负责的问题、采取的工程方法，以及可以被验证的结果。",
     educationSolid: "教育", educationGhost: "与荣誉",
     educationLabel: "教育经历",
     masterLabel: "硕士研究生",
@@ -297,7 +295,7 @@ export function PortfolioHome({ initialLanguage = "zh" }: { initialLanguage?: La
             })}</div>
           </section>
 
-          <section className="section-block" id="experience"><div className="section-title-row"><div><h2 className="section-title"><span>{ui.experienceSolid}</span> <em>{ui.experienceGhost}</em></h2><p>{ui.experienceIntro}</p></div></div><div className="experience-list">{ui.experiences.map((item, index) => (
+          <section className="section-block" id="experience"><div className="section-title-row"><div><h2 className="section-title"><span>{ui.experienceSolid}</span> <em>{ui.experienceGhost}</em></h2></div></div><div className="experience-list">{ui.experiences.map((item, index) => (
             <article className="experience-card tilt-card" key={item.period}><span className="experience-index">0{index + 1}</span><div className="experience-main"><p className="experience-period">{item.period}</p><h3>{item.company}</h3><h4>{item.role}</h4><p>{item.detail}</p><ul className="experience-highlights">{item.highlights.map((highlight) => <li key={highlight}>{highlight}</li>)}</ul><div className="project-tags">{item.tags.map((tag) => <span key={tag}>{tag}</span>)}</div></div></article>
           ))}</div></section>
 
