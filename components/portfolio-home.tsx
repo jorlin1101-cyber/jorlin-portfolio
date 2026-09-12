@@ -27,7 +27,7 @@ import {
   Workflow,
   Wrench,
 } from "lucide-react";
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import { profile, projects, type Language } from "@/data/content";
 
 type Theme = "light" | "dark";
@@ -85,8 +85,14 @@ const portfolioCopy = {
       name: "Name", email: "Email", topic: "Topic", message: "Message",
       namePlaceholder: "Your name", emailPlaceholder: "you@example.com", topicPlaceholder: "Select a topic",
       topics: ["Job opportunity", "Project collaboration", "Portfolio feedback", "Just saying hello"],
-      messagePlaceholder: "Tell me a little about what you have in mind…", submit: "Open email app",
-      hint: "This opens your default email app. Review the draft and send it there.",
+      messagePlaceholder: "Tell me a little about what you have in mind…", submit: "Send message",
+      hint: "Your message will be emailed to me. I’ll reply to the address you provide.",
+      sending: "Sending…", success: "Message submitted. Thank you! I’ll reply by email.",
+      error: "Your message could not be submitted. Please retry or use the email address below.",
+      rateLimit: "Too many attempts. Please wait 10 minutes or contact me by email.",
+      invalid: "Please check your name, email, topic and message.",
+      unavailable: "The contact form is temporarily unavailable. Please use the email address below.",
+      copy: "Copy email", copied: "Copied", copyError: "Select the address to copy it.",
       alternative: "You can also copy this address:",
     },
     footer: "Designed and built by Jorlin Shi.", photo: "Portrait coming soon", resume: "Detailed résumé",
@@ -156,8 +162,14 @@ const portfolioCopy = {
       name: "姓名", email: "邮箱", topic: "联系主题", message: "留言",
       namePlaceholder: "你的姓名", emailPlaceholder: "you@example.com", topicPlaceholder: "请选择联系主题",
       topics: ["工作机会", "项目合作", "作品集建议", "只是打个招呼"],
-      messagePlaceholder: "简单介绍一下你想聊的事情……", submit: "打开邮件应用",
-      hint: "将打开你的默认邮件应用，请在应用中确认并发送邮件。",
+      messagePlaceholder: "简单介绍一下你想聊的事情……", submit: "发送留言",
+      hint: "留言将通过邮件发送给我，我会通过你填写的邮箱回复。",
+      sending: "正在发送……", success: "留言已提交，谢谢！我会通过你填写的邮箱回复。",
+      error: "留言暂时未能提交，请重试，或通过下方邮箱联系我。",
+      rateLimit: "提交较频繁，请等 10 分钟后重试，或直接通过邮箱联系我。",
+      invalid: "请检查姓名、邮箱、联系主题和留言内容。",
+      unavailable: "留言功能暂时不可用，请通过下方邮箱联系我。",
+      copy: "复制邮箱", copied: "已复制", copyError: "请选中邮箱地址进行复制。",
       alternative: "也可以直接复制邮箱：",
     },
     footer: "由石卓灵设计与开发。", photo: "职业照稍后更新", resume: "完整简历",
@@ -201,6 +213,9 @@ export function PortfolioHome({ initialLanguage = "zh" }: { initialLanguage?: La
   const [language, setLanguage] = useState<Language>(initialLanguage);
   const [theme, setTheme] = useState<Theme>("light");
   const [activeSection, setActiveSection] = useState("home");
+  const [contactStatus, setContactStatus] = useState<"idle" | "sending" | "success" | "error" | "rateLimit" | "invalid" | "unavailable">("idle");
+  const [copyStatus, setCopyStatus] = useState<"copy" | "copied" | "copyError">("copy");
+  const sendingContact = useRef(false);
   const ui = portfolioCopy[language];
   const list = [...projects[language]].sort(
     (left, right) => projectOrder.indexOf(left.slug) - projectOrder.indexOf(right.slug),
@@ -222,14 +237,33 @@ export function PortfolioHome({ initialLanguage = "zh" }: { initialLanguage?: La
     event.currentTarget.style.setProperty("--pointer-y", `${event.clientY}px`);
   }
 
-  function submitContact(event: FormEvent<HTMLFormElement>) {
+  async function submitContact(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const form = new FormData(event.currentTarget);
-    const sender = String(form.get("name") || "");
-    const email = String(form.get("email") || "");
-    const topic = String(form.get("topic") || "Portfolio contact");
-    const message = String(form.get("message") || "");
-    window.location.href = `mailto:${profile.email}?subject=${encodeURIComponent(`[Portfolio] ${topic} — ${sender}`)}&body=${encodeURIComponent(`${message}\n\nFrom: ${sender}\nEmail: ${email}`)}`;
+    if (sendingContact.current) return;
+    const element = event.currentTarget;
+    const form = new FormData(element);
+    sendingContact.current = true;
+    setContactStatus("sending");
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(Object.fromEntries(["name", "email", "topic", "message", "website"].map(key => [key, String(form.get(key) || "")]))),
+        signal: AbortSignal.timeout(20_000),
+      });
+      const data = await response.json().catch(() => null);
+      if (response.status === 202 && data?.ok === true) {
+        setContactStatus("success");
+        element.reset();
+      } else {
+        setContactStatus(response.status === 429 ? "rateLimit" : response.status === 400 || response.status === 413 ? "invalid" : response.status === 503 ? "unavailable" : "error");
+      }
+    } catch { setContactStatus("error"); }
+    finally { sendingContact.current = false; }
+  }
+
+  async function copyEmail() {
+    try { await navigator.clipboard.writeText(profile.email); setCopyStatus("copied"); }
+    catch { setCopyStatus("copyError"); }
   }
 
   const navIcons = [Home, FolderKanban, BriefcaseBusiness, Wrench, MessageSquareText];
@@ -328,7 +362,18 @@ export function PortfolioHome({ initialLanguage = "zh" }: { initialLanguage?: La
           ))}</div></section>
 
           <section className="section-block contact-section" id="contact"><h2 className="section-title"><span>{ui.contactSolid}</span> <em>{ui.contactGhost}</em></h2><p className="contact-intro">{ui.contactIntro}</p>
-            <form className="contact-form" onSubmit={submitContact}><div className="form-grid"><label>{ui.form.name}<input name="name" type="text" placeholder={ui.form.namePlaceholder} required /></label><label>{ui.form.email}<input name="email" type="email" placeholder={ui.form.emailPlaceholder} required /></label></div><label>{ui.form.topic}<select name="topic" defaultValue="" required><option value="" disabled>{ui.form.topicPlaceholder}</option>{ui.form.topics.map((topic) => <option key={topic}>{topic}</option>)}</select></label><label>{ui.form.message}<textarea name="message" rows={5} placeholder={ui.form.messagePlaceholder} required /></label><p className="contact-help" id="contact-help">{ui.form.hint}</p><p className="contact-email">{ui.form.alternative} <a href={`mailto:${profile.email}`}>{profile.email}</a></p><button type="submit" className="submit-button" aria-describedby="contact-help"><Send size={16} />{ui.form.submit}</button></form>
+            <form className="contact-form" onSubmit={submitContact} aria-busy={contactStatus === "sending"}>
+              <fieldset className="contact-fields" disabled={contactStatus === "sending"}>
+                <div className="form-grid"><label>{ui.form.name}<input name="name" type="text" autoComplete="name" maxLength={80} placeholder={ui.form.namePlaceholder} required /></label><label>{ui.form.email}<input name="email" type="email" autoComplete="email" maxLength={254} placeholder={ui.form.emailPlaceholder} required /></label></div>
+                <label>{ui.form.topic}<select name="topic" defaultValue="" required><option value="" disabled>{ui.form.topicPlaceholder}</option>{ui.form.topics.map((topic, index) => <option key={topic} value={["job", "project", "feedback", "hello"][index]}>{topic}</option>)}</select></label>
+                <label>{ui.form.message}<textarea name="message" rows={5} maxLength={5000} placeholder={ui.form.messagePlaceholder} required /></label>
+                <div className="contact-honeypot" aria-hidden="true"><label>Website<input name="website" type="text" tabIndex={-1} autoComplete="off" /></label></div>
+              </fieldset>
+              <p className="contact-help" id="contact-help">{ui.form.hint}</p>
+              <p className={`contact-status ${contactStatus === "success" ? "success" : ""}`} role="status" aria-live="polite" aria-atomic="true">{contactStatus === "idle" || contactStatus === "sending" ? "" : ui.form[contactStatus]}</p>
+              <p className="contact-email">{ui.form.alternative} <a href={`mailto:${profile.email}`}>{profile.email}</a><button type="button" className="copy-email-button" onClick={copyEmail}>{ui.form[copyStatus]}</button></p>
+              <button type="submit" className="submit-button" disabled={contactStatus === "sending"} aria-describedby="contact-help"><Send size={16} />{contactStatus === "sending" ? ui.form.sending : ui.form.submit}</button>
+            </form>
           </section>
           <footer className="reference-footer">© 2026 {name} · <a href={profile.github} target="_blank" rel="noreferrer">GitHub</a> · <a href={`mailto:${profile.email}`}>{profile.email}</a><span>{ui.footer}</span></footer>
         </div>

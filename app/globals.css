@@ -304,3 +304,11 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .contact-help, .contact-email { margin: 0; color: var(--text-muted); font-size: .85rem; line-height: 1.65; }
 .contact-email a { color: var(--accent); user-select: all; overflow-wrap: anywhere; }
 .evidence-link { margin-top: 20px; }
+.contact-fields { display: grid; gap: 20px; min-width: 0; margin: 0; padding: 0; border: 0; }
+.contact-honeypot { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.contact-status { margin: 0; color: #bd4323; font-size: .88rem; line-height: 1.65; }
+.contact-status:empty { display: none; }
+.contact-status.success { color: #288464; }
+.copy-email-button { display: inline-flex; margin-left: 10px; padding: 4px 10px; border: 1px solid var(--border); border-radius: 8px; background: transparent; color: var(--text-muted); font-size: .75rem; cursor: pointer; }
+.copy-email-button:hover { color: var(--accent); border-color: var(--accent); }
+.submit-button:disabled { opacity: .65; cursor: wait; }
