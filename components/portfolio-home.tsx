@@ -164,7 +164,7 @@ const portfolioCopy = {
       topics: ["工作机会", "项目合作", "作品集建议", "只是打个招呼"],
       messagePlaceholder: "简单介绍一下你想聊的事情……", submit: "发送留言",
       hint: "留言将通过邮件发送给我，我会通过你填写的邮箱回复。",
-      sending: "正在发送……", success: "留言已提交，谢谢！我会通过你填写的邮箱回复。",
+      sending: "正在发送……", success: "留言已经提交啦~谢谢！我会用你提供的邮箱回复！",
       error: "留言暂时未能提交，请重试，或通过下方邮箱联系我。",
       rateLimit: "提交较频繁，请等 10 分钟后重试，或直接通过邮箱联系我。",
       invalid: "请检查姓名、邮箱、联系主题和留言内容。",
@@ -370,9 +370,12 @@ export function PortfolioHome({ initialLanguage = "zh" }: { initialLanguage?: La
                 <div className="contact-honeypot" aria-hidden="true"><label>Website<input name="website" type="text" tabIndex={-1} autoComplete="off" /></label></div>
               </fieldset>
               <p className="contact-help" id="contact-help">{ui.form.hint}</p>
-              <p className={`contact-status ${contactStatus === "success" ? "success" : ""}`} role="status" aria-live="polite" aria-atomic="true">{contactStatus === "idle" || contactStatus === "sending" ? "" : ui.form[contactStatus]}</p>
+              <p className="contact-status" role="status" aria-live="polite" aria-atomic="true">{contactStatus === "idle" || contactStatus === "sending" || contactStatus === "success" ? "" : ui.form[contactStatus]}</p>
               <p className="contact-email">{ui.form.alternative} <a href={`mailto:${profile.email}`}>{profile.email}</a><button type="button" className="copy-email-button" onClick={copyEmail}>{ui.form[copyStatus]}</button></p>
-              <button type="submit" className="submit-button" disabled={contactStatus === "sending"} aria-describedby="contact-help"><Send size={16} />{contactStatus === "sending" ? ui.form.sending : ui.form.submit}</button>
+              <div className="contact-submit-row">
+                <button type="submit" className="submit-button" disabled={contactStatus === "sending"} aria-describedby="contact-help"><Send size={16} />{contactStatus === "sending" ? ui.form.sending : ui.form.submit}</button>
+                <p className="contact-status success" role="status" aria-live="polite" aria-atomic="true">{contactStatus === "success" ? ui.form.success : ""}</p>
+              </div>
             </form>
           </section>
           <footer className="reference-footer">© 2026 {name} · <a href={profile.github} target="_blank" rel="noreferrer">GitHub</a> · <a href={`mailto:${profile.email}`}>{profile.email}</a><span>{ui.footer}</span></footer>
