@@ -21,7 +21,6 @@ export type Project = {
   demoNote: string;
   technical?: { title: string; body: string }[];
   resources?: { label: string; href: string }[];
-  evaluation?: { title: string; intro: string; headers: string[]; rows: string[][]; note: string; source: string };
   caseStudy: {
     context: string;
     challenge: string;
@@ -293,7 +292,7 @@ export const projects: Record<Language, Project[]> = {
           "将证据、字段修改、计算公式与人工确认保留在同一条可追溯链路中。",
           "通过对照评测观察检索排名与拒答之间的取舍，再决定启用哪些控制。"
         ],
-        "outcome": "形成材料核验、政策证据、规则计算与人工确认的多角色演示流程。2026-08-26 本地 30 题评测中，B 组 MRR 为 70.00%；C 组无答案 F1 为 100%、MRR 为 65.00%，同时带来更高的 P95 检索时延。展开测试明细可查看各组结果。",
+        "outcome": "形成材料核验、政策证据、规则计算与人工确认的多角色演示流程。2026-08-26 本地 30 题评测中，B 组 MRR 为 70.00%；C 组无答案 F1 为 100%、MRR 为 65.00%，同时带来更高的 P95 检索时延。",
         "constraints": "人员、申请、金额和内部机构规则均为演示数据；外部政策来自公开资料。评测为历史小样本记录，原始逐题 JSON 未公开，仓库提供数据集、脚本和汇总报告。引用元数据检查不代表最终答案逐句正确；本地/远程模型配置也不代表已实现终端小模型与云模型的动态调度。"
       },
       "technical": [
@@ -318,42 +317,6 @@ export const projects: Record<Language, Project[]> = {
           "body": "以同一政策库和 30 题数据集比较 A/B/C，分别记录检索排名、拒答与时延，避免把不同方案的最优指标拼接。trace_id 串联模型调用、政策检索、规则计算和人工决策，方便从结果回看依据与执行步骤。"
         }
       ],
-      "evaluation": {
-        "title": "检索与拒答的取舍",
-        "intro": "我用同一套 30 道政策问题比较了三种做法。混合检索让相关依据排得更靠前；加上版本核验和拒答控制后，系统能识别这批题中证据不足的情况，但检索也更慢了。",
-        "headers": [
-          "方案",
-          "Recall@5",
-          "MRR",
-          "无答案 F1",
-          "P95 时延（约）"
-        ],
-        "rows": [
-          [
-            "A · 纯向量",
-            "100%",
-            "64.17%",
-            "0%",
-            "1.20 s"
-          ],
-          [
-            "B · 混合检索 + RRF",
-            "100%",
-            "70.00%",
-            "0%",
-            "2.36 s"
-          ],
-          [
-            "C · 核验 / 拒答 / 受控改写",
-            "100%",
-            "65.00%",
-            "100%",
-            "4.24 s"
-          ]
-        ],
-        "note": "测试日期为 2026-08-26：24 题可回答，6 题需拒答。A/B 未设置拒答门禁，因此无答案 F1 为 0%；C 的 100% 仅对应这批题。Recall@5 按评测脚本计算，其中无来源标注的无答案题记为 1；它不代表回答正确率。时延换算为秒并四舍五入，完整数值与引用检查定义见原始报告。",
-        "source": "https://github.com/jorlin1101-cyber/fincredit-copilot/blob/main/docs/evaluation-report.md"
-      },
       "resources": [
         {
           "label": "上游来源 · UPSTREAM",
@@ -565,7 +528,7 @@ export const projects: Record<Language, Project[]> = {
           "Keep evidence, field revisions, formulas and human confirmations in one traceable flow.",
           "Use controlled comparisons to inspect ranking and abstention trade-offs before choosing which controls to enable."
         ],
-        "outcome": "Delivered a multi-role demo connecting document checks, policy evidence, rule calculations and human confirmation. In the local 30-question evaluation on 2026-08-26, B reached 70.00% MRR; C reached 100% no-answer F1 and 65.00% MRR, with higher P95 retrieval latency. Expand the test details to see each configuration separately.",
+        "outcome": "Delivered a multi-role demo connecting document checks, policy evidence, rule calculations and human confirmation. In the local 30-question evaluation on 2026-08-26, B reached 70.00% MRR; C reached 100% no-answer F1 and 65.00% MRR, with higher P95 retrieval latency.",
         "constraints": "People, applications, amounts and internal rules are demo data; external policies come from public sources. These are historical small-sample results; per-question JSON is not published, while the dataset, script and summary report are available. Citation metadata checks do not establish sentence-level answer accuracy. Local/remote model configuration does not establish dynamic routing between an on-device small model and a cloud model."
       },
       "technical": [
@@ -590,42 +553,6 @@ export const projects: Record<Language, Project[]> = {
           "body": "Compare A/B/C on the same policy collection and 30-question dataset, reporting ranking, abstention and latency separately. Use trace_id to connect model calls, retrieval, rule calculations and human decisions so a result can be traced back to its evidence and execution steps."
         }
       ],
-      "evaluation": {
-        "title": "Balancing retrieval and abstention",
-        "intro": "I compared three approaches on the same 30 policy questions. Hybrid retrieval ranked relevant evidence higher. Adding version checks and abstention identified insufficient evidence in this test set, but also made retrieval slower.",
-        "headers": [
-          "Configuration",
-          "Recall@5",
-          "MRR",
-          "No-answer F1",
-          "P95 latency (approx.)"
-        ],
-        "rows": [
-          [
-            "A · Vector only",
-            "100%",
-            "64.17%",
-            "0%",
-            "1.20 s"
-          ],
-          [
-            "B · Hybrid + RRF",
-            "100%",
-            "70.00%",
-            "0%",
-            "2.36 s"
-          ],
-          [
-            "C · Checks / abstention / controlled rewrite",
-            "100%",
-            "65.00%",
-            "100%",
-            "4.24 s"
-          ]
-        ],
-        "note": "Test date: 2026-08-26, with 24 answerable questions and 6 requiring abstention. A/B had no abstention gate, so no-answer F1 was 0%; C’s 100% applies only to this set. The script assigns Recall@5 of 1 to no-answer questions without labeled sources; this is not answer accuracy. Latency is rounded to seconds. The original report retains exact values and citation-check definitions.",
-        "source": "https://github.com/jorlin1101-cyber/fincredit-copilot/blob/main/docs/evaluation-report.md"
-      },
       "resources": [
         {
           "label": "Upstream provenance · UPSTREAM",

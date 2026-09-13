@@ -20,7 +20,6 @@ export function ProjectDetail({ projects, initialLanguage = "zh" }: { projects: 
     window.history.replaceState(null, "", url);
   }, [language]);
   const demoHref = project.demo || (localDemoAvailable ? project.localDemo : undefined);
-  const evaluation = project.evaluation;
   return <main className={`project-detail-page lang-${language} project-${project.slug}`}>
     <header className="site-shell site-header">
       <Link href={`/?lang=${language}`} className="wordmark"><span>{language === "zh" ? "作品集 / 2026" : "portfolio / 2026"}</span><strong>{language === "zh" ? "与 Jorlin 一起 Coding" : "Coding with Jorlin"}</strong></Link>
@@ -53,15 +52,6 @@ export function ProjectDetail({ projects, initialLanguage = "zh" }: { projects: 
       <h2>{text.technical}</h2><div className="technical-grid">{project.technical.map((item, index) => <article key={item.title}>
         <span className="technical-index">{String(index + 1).padStart(2, "0")}</span><h3>{item.title}</h3><p>{item.body}</p>
       </article>)}</div>
-    </section>}
-    {evaluation && <section className="site-shell evaluation-section">
-      <h2>{evaluation.title}</h2><p>{evaluation.intro}</p>
-      <details className="evaluation-details"><summary>{language === "zh" ? "展开 30 题测试明细" : "Explore the 30-question test details"}</summary>
-      <div className="evaluation-scroll" role="region" aria-label={evaluation.title} tabIndex={0}>
-        <table><thead><tr>{evaluation.headers.map((header) => <th key={header} scope="col">{header}</th>)}</tr></thead><tbody>{evaluation.rows.map((row) => <tr key={row[0]}>{row.map((value, i) => i === 0 ? <th key={i} scope="row">{value}</th> : <td key={i}>{value}</td>)}</tr>)}</tbody></table>
-      </div>
-      <p className="evaluation-note">{evaluation.note}</p>
-      <a className="evidence-link" href={evaluation.source} target="_blank" rel="noreferrer">{language === "zh" ? "查看完整评测报告" : "Read the complete evaluation report"}<ArrowUpRight size={14} /></a></details>
     </section>}
     <section className="site-shell detail-body"><div>
       <div className="detail-section"><h2>{text.challenge}</h2><p>{project.caseStudy.challenge}</p></div>
