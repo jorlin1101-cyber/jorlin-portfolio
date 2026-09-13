@@ -39,7 +39,7 @@ const projectOrder = ["securepr-agent", "fincredit-copilot", "ai-sales-lead-crm-
 const portfolioCopy = {
   en: {
     nav: ["Home", "Projects", "Experience", "Tools", "Case studies"],
-    profileDescription: "AI agent and AI application engineer building resumable execution, tool integration, context management and human review.",
+    profileDescription: "I focus on AI agents and AI applications. I recently completed three projects in code review, lending support, and sales automation. Happy to connect.",
     availability: "Open to AI agent & application roles",
     heroLead: "Hi, I’m Jorlin. I’m working on AI agents and AI applications. Here you’ll find my projects, demos you can try, and a few things I’ve learned while building them.",
     titleSolid: "AI AGENT",
@@ -128,7 +128,7 @@ const portfolioCopy = {
   },
   zh: {
     nav: ["首页", "项目", "经历", "工具", "复盘"],
-    profileDescription: "AI Agent 与 AI 应用工程师，关注可恢复执行、工具集成、上下文管理与人工确认。",
+    profileDescription: "专注 AI Agent 和 AI 应用，最近完成了代码审查、信贷辅助和销售自动化三个项目，欢迎交流",
     availability: "正在寻找 AI Agent 与 AI 应用方向机会",
     heroLead: "你好，我是 Jorlin，正在做 AI Agent 和 AI 应用。这里有我做过的项目、可以上手的演示，以及一些开发过程中的思考。",
     titleSolid: "AI Agent", titleGhost: "工程师",
