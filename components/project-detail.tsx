@@ -13,14 +13,27 @@ export function ProjectDetail({ projects, initialLanguage = "zh" }: { projects: 
   useEffect(() => {
     setLocalDemoAvailable(["127.0.0.1", "localhost"].includes(window.location.hostname));
   }, []);
-  useEffect(() => { document.documentElement.lang = language === "zh" ? "zh-CN" : "en"; const url = new URL(window.location.href); url.searchParams.set("lang", language); window.history.replaceState(null, "", url); }, [language]);
+  useEffect(() => {
+    document.documentElement.lang = language === "zh" ? "zh-CN" : "en";
+    const url = new URL(window.location.href);
+    url.searchParams.set("lang", language);
+    window.history.replaceState(null, "", url);
+  }, [language]);
   const demoHref = project.demo || (localDemoAvailable ? project.localDemo : undefined);
+  const evaluation = project.evaluation;
   return <main className={`project-detail-page lang-${language} project-${project.slug}`}>
-    <header className="site-shell site-header"><Link href={`/?lang=${language}`} className="wordmark"><span>{language === "zh" ? "作品集 / 2026" : "portfolio / 2026"}</span><strong>{language === "zh" ? "与 Jorlin 一起 Coding" : "Coding with Jorlin"}</strong></Link><div className="header-actions"><Link href={`/?lang=${language}#projects`} className="nav-links">{text.backToWork}</Link><button className="language-toggle" onClick={() => setLanguage(language === "zh" ? "en" : "zh")} aria-label={language === "zh" ? "Switch to English" : "切换到中文"}><Languages size={16} />{language === "zh" ? "EN" : "中文"}</button></div></header>
-    <section className="site-shell detail-hero"><p className="eyebrow">{project.index} / {project.eyebrow}</p><h1>{project.name}</h1><p className="detail-summary">{project.summary}</p><div className="detail-actions"><a className="button" href={project.repo} target="_blank" rel="noreferrer">{text.viewGithub} <ArrowUpRight size={16} /></a></div></section>
+    <header className="site-shell site-header">
+      <Link href={`/?lang=${language}`} className="wordmark"><span>{language === "zh" ? "作品集 / 2026" : "portfolio / 2026"}</span><strong>{language === "zh" ? "与 Jorlin 一起 Coding" : "Coding with Jorlin"}</strong></Link>
+      <div className="header-actions"><Link href={`/?lang=${language}#projects`} className="nav-links">{text.backToWork}</Link><button className="language-toggle" onClick={() => setLanguage(language === "zh" ? "en" : "zh")} aria-label={language === "zh" ? "Switch to English" : "切换到中文"}><Languages size={16} />{language === "zh" ? "EN" : "中文"}</button></div>
+    </header>
+    <section className="site-shell detail-hero">
+      <p className="eyebrow">{project.index} / {project.eyebrow}</p><h1>{project.name}</h1><p className="detail-summary">{project.summary}</p>
+      <div className="detail-actions"><a className="button" href={project.repo} target="_blank" rel="noreferrer">{text.viewGithub} <ArrowUpRight size={16} /></a></div>
+    </section>
     <section className="site-shell system-preview-section">
       <div className="system-preview-heading"><div><p className="eyebrow">{text.systemPreview}</p><h2>{project.name}</h2></div><p>{text.previewDescription}</p></div>
-      {demoHref ? <a className="system-preview-browser" href={demoHref} target="_blank" rel="noreferrer" aria-label={`${text.enterSystem}: ${project.name}`}>
+      <p className="demo-notice" id="demo-notice">{project.demoNote}</p>
+      {demoHref ? <a className="system-preview-browser" href={demoHref} target="_blank" rel="noreferrer" aria-label={`${text.enterSystem}: ${project.name}`} aria-describedby="demo-notice">
         <span className="browser-bar"><i /><i /><i /><span>{demoHref}</span></span>
         <span className="preview-canvas"><img src={project.previewImage} alt={`${project.name} ${text.systemPreview}`} /><strong>{text.enterSystem}<ArrowUpRight size={18} /></strong></span>
       </a> : <div className="system-preview-browser preview-disabled">
@@ -36,7 +49,29 @@ export function ProjectDetail({ projects, initialLanguage = "zh" }: { projects: 
         <article><Compass size={21} /><h2>{text.quickStart}</h2><ol>{project.quickStart.map((item) => <li key={item}>{item}</li>)}</ol></article>
       </div>
     </section>
-    <section className="site-shell detail-body"><div><div className="detail-section"><h2>{text.challenge}</h2><p>{project.caseStudy.challenge}</p></div><div className="detail-section"><h2>{text.approach}</h2><ul>{project.caseStudy.approach.map((item) => <li key={item}>{item}</li>)}</ul></div><div className="detail-section"><h2>{text.outcome}</h2><p>{project.caseStudy.outcome}</p></div><div className="detail-section"><h2>{text.constraints}</h2><p>{project.caseStudy.constraints}</p></div></div><aside className="metrics-box"><h2>{text.metrics}</h2>{project.metrics.map((metric) => <div className="metric-row" key={metric.label}><span>{metric.label}</span><span>{metric.value}</span></div>)}<a className="evidence-link" href={`https://github.com/jorlin1101-cyber/${project.slug}/blob/main/${project.slug === "fincredit-copilot" ? "docs/evaluation-report.md" : "README.md"}`} target="_blank" rel="noreferrer">{language === "zh" ? "查看项目与评测说明" : "Project and evaluation notes"}<ArrowUpRight size={14} /></a><p className="hero-note">{project.role} · {project.year}</p></aside></section>
+    {project.technical && <section className="site-shell technical-section">
+      <h2>{text.technical}</h2><div className="technical-grid">{project.technical.map((item, index) => <article key={item.title}>
+        <span className="technical-index">{String(index + 1).padStart(2, "0")}</span><h3>{item.title}</h3><p>{item.body}</p>
+      </article>)}</div>
+    </section>}
+    {evaluation && <section className="site-shell evaluation-section">
+      <h2>{evaluation.title}</h2><p>{evaluation.intro}</p>
+      <div className="evaluation-scroll" role="region" aria-label={evaluation.title} tabIndex={0}>
+        <table><thead><tr>{evaluation.headers.map((header) => <th key={header} scope="col">{header}</th>)}</tr></thead><tbody>{evaluation.rows.map((row) => <tr key={row[0]}>{row.map((value, i) => i === 0 ? <th key={i} scope="row">{value}</th> : <td key={i}>{value}</td>)}</tr>)}</tbody></table>
+      </div>
+      <p className="evaluation-note">{evaluation.note}</p>
+      <a className="evidence-link" href={evaluation.source} target="_blank" rel="noreferrer">{language === "zh" ? "查看完整评测报告" : "Read the complete evaluation report"}<ArrowUpRight size={14} /></a>
+    </section>}
+    <section className="site-shell detail-body"><div>
+      <div className="detail-section"><h2>{text.challenge}</h2><p>{project.caseStudy.challenge}</p></div>
+      <div className="detail-section"><h2>{text.approach}</h2><ul>{project.caseStudy.approach.map((item) => <li key={item}>{item}</li>)}</ul></div>
+      <div className="detail-section"><h2>{text.outcome}</h2><p>{project.caseStudy.outcome}</p></div>
+      <div className="detail-section"><h2>{text.constraints}</h2><p>{project.caseStudy.constraints}</p></div>
+    </div><aside className="metrics-box">
+      <h2>{text.metrics}</h2>{project.metrics.map((metric) => <div className="metric-row" key={metric.label}><span>{metric.label}</span><span>{metric.value}</span></div>)}
+      <p className="hero-note">{project.role} · {project.year}</p><h3 className="resource-title">{text.evidence}</h3>
+      <div className="resource-links">{project.resources?.map((resource) => <a className="evidence-link" key={resource.href} href={resource.href} target="_blank" rel="noreferrer">{resource.label}<ArrowUpRight size={14} /></a>)}</div>
+    </aside></section>
     <footer className="site-shell site-footer"><Link href={`/?lang=${language}`} className="button"><ArrowLeft size={16} /> {text.backToWork}</Link><span>{profile.email}</span></footer>
   </main>;
 }

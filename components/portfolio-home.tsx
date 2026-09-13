@@ -34,15 +34,15 @@ type Theme = "light" | "dark";
 
 const sectionIds = ["home", "projects", "experience", "tools", "thoughts"] as const;
 const stackIcons = [Bot, Search, Code2, Database, Workflow, ShieldCheck, ChartNoAxesCombined, Wrench];
-const projectOrder = ["fincredit-copilot", "securepr-agent", "ai-sales-lead-crm-automation"];
+const projectOrder = ["securepr-agent", "fincredit-copilot", "ai-sales-lead-crm-automation"];
 
 const portfolioCopy = {
   en: {
     nav: ["Home", "Projects", "Experience", "Tools", "Case studies"],
-    profileDescription: "AI application and Agent engineer turning real-world workflows into AI systems people can actually use.",
-    availability: "Open to AI application & agent roles",
-    heroLead: "Coding with Jorlin. I build intelligent agents, knowledge retrieval, workflow automation, and reliable human-in-the-loop experiences.",
-    titleSolid: "AI APPLICATION",
+    profileDescription: "AI agent and AI application engineer building resumable execution, tool integration, context management and human review.",
+    availability: "Open to AI agent & application roles",
+    heroLead: "I build AI agents with resumable execution, tool integration, context management and human review. Explore three public systems through code, demos and evaluation notes.",
+    titleSolid: "AI AGENT",
     titleGhost: "ENGINEER",
     statProjects: "PROJECTS SHIPPED",
     statDomains: "APPLIED AI DOMAINS",
@@ -50,7 +50,7 @@ const portfolioCopy = {
     ribbonItems: ["AGENTS, RETRIEVAL, EVALUATION", "PYTHON, FASTAPI, NEXT.JS, RAG"],
     projectsSolid: "RECENT",
     projectsGhost: "PROJECTS",
-    projectIntro: "Three end-to-end systems built around code security, sales operations, and financial decision support.",
+    projectIntro: "Three public AI systems for code security, financial decision support and sales operations.",
     liveDemo: "Live demo",
     sourceCode: "Source code",
     caseStudy: "Case study",
@@ -98,15 +98,15 @@ const portfolioCopy = {
     footer: "Designed and built by Jorlin Shi.", photo: "Portrait coming soon", resume: "Detailed résumé",
     theme: "Toggle theme", language: "切换到中文",
     experiences: [
-      { period: "Apr 2026 — Present", company: "Independent AI Product Practice", role: "AI Application & Agent Engineer", detail: "Owned the path from problem framing and architecture to interface design, evaluation, and reproducible delivery across three public AI systems.", highlights: ["Built a resumable agent runtime with budgets, checkpoints, specialist review, and human validation.", "Implemented hybrid RAG with BGE-M3, BM25, RRF, grounded generation, and retrieval evaluation.", "Connected typed APIs, multi-turn state, CRM automation, observability, and product-facing interfaces."], tags: ["LLM Agents", "RAG", "Evaluation", "Full-stack"] },
-      { period: "Jul 2025 — Jan 2026", company: "北京润科通用有限公司", role: "Simulation Modeling Engineer", detail: "Translated engineering requirements into executable models and validation workflows, building the systems mindset now applied to reliable AI products.", highlights: ["Developed and validated C++ / Python integration interfaces for simulation workflows.", "Built Simulink / Stateflow models and supported verification against expected behavior.", "Worked across requirements, implementation, debugging, and delivery rather than treating modeling as an isolated artifact."], tags: ["C++", "Python", "Simulink", "Stateflow", "Validation"] },
-      { period: "Jun 2023 — Jun 2025", company: "University of Electronic Science and Technology of China", role: "Research · Physics-guided AI Modeling", detail: "Combined physical priors with data-driven models to predict satellite / free-space optical communication performance.", highlights: ["Built simulation data pipelines in MATLAB and learned model residuals with neural networks.", "Reduced mean power-prediction error from 15.1% to 8.7%, with R² of 0.95; conditional flow modeling reduced per-case inference time from 12.5 s to 3 s."], tags: ["Physics-guided ML", "MATLAB", "Model evaluation"] },
+      { period: "Apr 2026 — Present", company: "Independent AI Product Practice", role: "AI Agent & AI Application Engineer", detail: "Completed three public AI systems.", highlights: ["Built a resumable agent runtime with budgets, checkpoints, specialist review, and human validation.", "Implemented hybrid RAG with BGE-M3, BM25, RRF, grounded generation, and retrieval evaluation.", "Connected typed APIs, multi-turn state, CRM automation, observability, and product-facing interfaces."], tags: ["LLM Agents", "RAG", "Evaluation", "Full-stack"] },
+      { period: "Jul 2025 — Jan 2026", company: "北京润科通用技术有限公司", role: "Simulation Modeling Engineer", detail: "Delivered simulation-platform integration, charging-protocol models and real-time validation.", highlights: ["Integrated C++ / Python calls, including argument conversion, returned values and exception mapping.", "Built Simulink charging-protocol models and message prototypes; supported integration, demo review and acceptance.", "Integrated models and reflective-memory interfaces, validated a core simulation cycle below 400 μs, and prepared debugging and acceptance documents."], tags: ["C++", "Python", "Simulink", "Stateflow", "Validation"] },
+      { period: "Jun 2023 — Jun 2025", company: "University of Electronic Science and Technology of China", role: "Research · Physics-guided AI Modeling", detail: "Combined physical priors with data-driven models to predict free-space optical communication performance.", highlights: ["Built simulation data pipelines in MATLAB and learned model residuals with neural networks.", "Reduced mean power-prediction error from 15.1% to 8.7%, with R² of 0.95; conditional normalizing flow reduced Wasserstein distance by 15% and per-case inference time from 12.5 s to 3 s (about 4.2×)."], tags: ["Physics-guided ML", "MATLAB", "Model evaluation"] },
     ],
     recognitions: [
       { title: "Outstanding Graduate Student", detail: "Graduate Academic Scholarship · Second Class" },
       { title: "Provincial First Prize", detail: "China Undergraduate Mathematical Contest in Modeling" },
       { title: "MCM Honorable Mention", detail: "Team captain" },
-      { title: "Research & Innovation", detail: "1 EI-indexed first-author paper · 1 invention patent application (second inventor; supervisor first)" },
+      { title: "Research & Innovation", detail: "1 EI-indexed first-author paper · 1 invention patent application (first among student inventors)" },
     ],
     stack: [
       ["LLM & Context Engineering", "Model APIs · prompting · structured output · tool calling"],
@@ -114,7 +114,7 @@ const portfolioCopy = {
       ["RAG & Retrieval", "BGE-M3 · BM25 · RRF · chunking · grounded generation"],
       ["Backend APIs", "Python · FastAPI · Pydantic · REST workflows"],
       ["Data & State", "PostgreSQL · SQLite · Redis Streams · conversation memory"],
-      ["Workflow Integration", "n8n · CRM / Notion sync · webhooks · idempotency"],
+      ["Tools & Model Configuration", "MCP / Skill · model providers · fault handling · human fallback"],
       ["Evaluation & Quality", "pytest · retrieval metrics · eval sets · Ruff · mypy"],
       ["Observability", "OpenTelemetry · Prometheus · logs · traces · failure analysis"],
       ["Product Frontend", "TypeScript · React · Next.js · bilingual interaction design"],
@@ -128,14 +128,14 @@ const portfolioCopy = {
   },
   zh: {
     nav: ["首页", "项目", "经历", "工具", "复盘"],
-    profileDescription: "AI 应用与 Agent 工程师，致力于把真实业务流程变成真正可用的 AI 系统。",
-    availability: "正在寻找 AI 应用与 Agent 方向机会",
-    heroLead: "和 Jorlin 一起，把 AI 想法变成真正可用的产品。我从真实业务问题出发，构建融合智能体、知识检索、流程自动化与人工协作的 AI 系统。",
-    titleSolid: "AI 应用", titleGhost: "工程师",
+    profileDescription: "AI Agent 与 AI 应用工程师，关注可恢复执行、工具集成、上下文管理与人工确认。",
+    availability: "正在寻找 AI Agent 与 AI 应用方向机会",
+    heroLead: "我关注 Agent 的可恢复执行、工具集成、上下文管理与人工确认。这里整理了三个公开 AI 系统的源码、演示与评测说明。",
+    titleSolid: "AI Agent", titleGhost: "工程师",
     statProjects: "个已完成项目", statDomains: "类 AI 应用场景", statRepos: "个开源应用项目",
     ribbonItems: ["Agent 编排", "RAG 检索", "评测体系", "全栈交付"],
     projectsSolid: "近期", projectsGhost: "项目",
-    projectIntro: "围绕代码安全、销售运营和金融决策辅助，完成三个端到端 AI 系统。",
+    projectIntro: "围绕代码安全、金融决策辅助和销售运营，完成了三个公开 AI 系统。",
     liveDemo: "打开项目界面",
     sourceCode: "查看源码",
     caseStudy: "查看项目详情",
@@ -175,15 +175,15 @@ const portfolioCopy = {
     footer: "由石卓灵设计与开发。", photo: "职业照稍后更新", resume: "完整简历",
     theme: "切换明暗主题", language: "Switch to English",
     experiences: [
-      { period: "2026.04 — 至今", company: "个人 AI 产品实践", role: "AI 应用与 Agent 工程师", detail: "独立负责问题定义、架构设计、交互实现、效果评测与可复现交付，完成三个公开 AI 系统。", highlights: ["构建支持预算控制、检查点、专业角色审查与人工确认的可恢复 Agent Runtime。", "实现融合 BGE-M3、BM25、RRF、Grounded Generation 与检索评测的混合 RAG 链路。", "打通强类型 API、多轮状态、CRM 自动化、可观测性与面向用户的产品界面。"], tags: ["LLM Agent", "RAG", "评测", "全栈开发"] },
-      { period: "2025.07 — 2026.01", company: "北京润科通用有限公司", role: "仿真建模工程师", detail: "将工程需求转化为可执行模型和验证流程，并把系统化建模思维延伸到可靠 AI 产品开发中。", highlights: ["开发并验证面向仿真流程的 C++ / Python 跨语言集成接口。", "使用 Simulink / Stateflow 构建模型，并依据预期行为完成验证与问题定位。", "覆盖需求理解、实现、调试和交付支持，而不是把模型作为孤立产物。"], tags: ["C++", "Python", "Simulink", "Stateflow", "验证"] },
-      { period: "2023.06 — 2025.06", company: "电子科技大学", role: "科研 · 物理模型引导的 AI 建模", detail: "面向卫星 / 自由空间光通信链路，结合物理先验与数据驱动模型开展性能预测。", highlights: ["基于 MATLAB 仿真搭建训练数据流水线，以残差网络学习理论模型与仿真的偏差。", "平均功率预测误差由 15.1% 降至 8.7%，R² 达 0.95；条件流模型将单工况推理耗时由 12.5 s 降至 3 s。"], tags: ["物理先验", "MATLAB", "模型评测"] },
+      { period: "2026.04 — 至今", company: "个人 AI 产品实践", role: "AI Agent 与 AI 应用工程师", detail: "完成了三个公开 AI 系统。", highlights: ["构建支持预算控制、检查点、专业角色审查与人工确认的可恢复 Agent Runtime。", "实现融合 BGE-M3、BM25、RRF、Grounded Generation 与检索评测的混合 RAG 链路。", "打通强类型 API、多轮状态、CRM 自动化、可观测性与面向用户的产品界面。"], tags: ["LLM Agent", "RAG", "评测", "全栈开发"] },
+      { period: "2025.07 — 2026.01", company: "北京润科通用技术有限公司", role: "仿真建模工程师", detail: "完成仿真平台集成、充电协议建模与实时性能验证。", highlights: ["完成 C++ / Python 跨语言调用、参数转换、返回值与异常映射。", "搭建 Simulink 充电协议模型与报文原型，支持平台接入、演示评审与验收。", "集成模型与反射内存接口，验证核心仿真周期 < 400 μs，编写调试与验收文档。"], tags: ["C++", "Python", "Simulink", "Stateflow", "验证"] },
+      { period: "2023.06 — 2025.06", company: "电子科技大学", role: "科研 · 物理模型引导的 AI 建模", detail: "面向自由空间光通信链路，结合物理先验与数据驱动模型开展性能预测。", highlights: ["基于 MATLAB 仿真搭建训练数据流水线，以残差网络学习理论模型与仿真的偏差。", "平均功率预测误差由 15.1% 降至 8.7%，R² 达 0.95；条件归一化流使 Wasserstein 距离下降 15%，单工况推理耗时由 12.5 s 降至 3 s（约 4.2 倍）。"], tags: ["物理先验", "MATLAB", "模型评测"] },
     ],
     recognitions: [
       { title: "优秀研究生", detail: "研究生学业二等奖学金" },
       { title: "省一等奖", detail: "全国大学生数学建模竞赛" },
       { title: "MCM H 奖", detail: "美国大学生数学建模竞赛 · 队长" },
-      { title: "科研与创新", detail: "EI 期刊第一作者论文 1 篇 · 发明专利申请 1 项（第二发明人，导师第一）" },
+      { title: "科研与创新", detail: "EI 期刊第一作者论文 1 篇 · 发明专利申请 1 项（学生第一）" },
     ],
     stack: [
       ["LLM 与上下文工程", "模型 API · Prompt · 结构化输出 · 工具调用"],
@@ -191,7 +191,7 @@ const portfolioCopy = {
       ["RAG 与检索", "BGE-M3 · BM25 · RRF · 文档切分 · Grounded Generation"],
       ["后端 API", "Python · FastAPI · Pydantic · REST 工作流"],
       ["数据与状态", "PostgreSQL · SQLite · Redis Streams · 对话记忆"],
-      ["流程集成", "n8n · CRM / Notion 同步 · Webhook · 幂等处理"],
+      ["工具集成与模型配置", "MCP / Skill · 多模型配置 · 服务降级 · 人工兜底"],
       ["评测与质量", "pytest · 检索指标 · 评测集 · Ruff · mypy"],
       ["可观测性", "OpenTelemetry · Prometheus · 日志 · Trace · 失败分析"],
       ["产品前端", "TypeScript · React · Next.js · 中英双语交互"],
@@ -317,9 +317,10 @@ export function PortfolioHome({ initialLanguage = "zh" }: { initialLanguage?: La
                     </div>
                     <div className="reference-project-body"><h3>{project.name}</h3><p>{project.stack.slice(0, 3).join(" · ")}</p></div>
                   </a>
+                  <p className="demo-wait-home" id={`demo-wait-${project.slug}`}>{language === "zh" ? "首次加载可能需要等待" : "The first load may take a moment"}</p>
                   <div className="project-link-row">
                     <a href={primaryHref}>{ui.caseStudy}<ArrowUpRight size={14} /></a>
-                    {project.demo && <a href={project.demo} target="_blank" rel="noreferrer">{ui.liveDemo}<ArrowUpRight size={14} /></a>}
+                    {project.demo && <a href={project.demo} target="_blank" rel="noreferrer" aria-describedby={`demo-wait-${project.slug}`}>{ui.liveDemo}<ArrowUpRight size={14} /></a>}
                     <a href={project.repo} target="_blank" rel="noreferrer" aria-label={`${project.name} — ${ui.sourceCode}`}>
                       <Github size={14} />{ui.sourceCode}
                     </a>
@@ -357,7 +358,7 @@ export function PortfolioHome({ initialLanguage = "zh" }: { initialLanguage?: La
 
           <section className="section-block" id="tools"><h2 className="section-title"><span>{ui.toolsSolid}</span> <em>{ui.toolsGhost}</em></h2><div className="stack-grid">{ui.stack.map(([title, description], index) => { const Icon = stackIcons[index % stackIcons.length]; return <article className="stack-card tilt-card" key={title}><Icon size={22} /><div><h3>{title}</h3><p>{description}</p></div></article>; })}</div></section>
 
-          <section className="section-block" id="thoughts"><h2 className="section-title"><span>{ui.thoughtsSolid}</span> <em>{ui.thoughtsGhost}</em></h2><div className="notes-grid">{ui.notes.map((note) => (
+          <section className="section-block" id="thoughts"><h2 className="section-title"><span>{ui.thoughtsSolid}</span> <em>{ui.thoughtsGhost}</em></h2><div className="notes-grid">{[...ui.notes].sort((a, b) => projectOrder.indexOf(a.slug) - projectOrder.indexOf(b.slug)).map((note) => (
             <Link href={`/projects/${note.slug}?lang=${language}`} className="note-card tilt-card" key={`${note.slug}-${note.title}`}><div className="note-meta"><span>{ui.notesLabel}</span></div><h3>{note.title}</h3><p>{note.body}</p><div className="note-topics">{note.topics.map((topic) => <span key={topic}>{topic}</span>)}</div><div className="read-more">{ui.readMore}<ArrowUpRight size={15} /></div></Link>
           ))}</div></section>
 

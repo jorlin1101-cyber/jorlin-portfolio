@@ -310,6 +310,34 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .contact-status:empty { display: none; }
 .contact-submit-row { display: grid; grid-template-columns: max-content minmax(0, 1fr); align-items: center; gap: 14px; }
 .contact-status.success { color: #288464; font-size: .78rem; }
+.demo-wait-home { margin: 14px 0 0; color: var(--text-muted); font-size: .75rem; line-height: 1.65; }
+.demo-notice { margin: 0 0 20px; padding: 14px 18px; border-left: 3px solid var(--accent); background: #f6f3ef; color: var(--muted); font-size: .88rem; line-height: 1.75; }
+.technical-section, .evaluation-section { padding-top: 54px; }
+.technical-section > h2, .evaluation-section > h2 { margin: 0 0 24px; font-size: 1.4rem; letter-spacing: -.02em; }
+.technical-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.technical-grid article { padding: 26px; border: 1px solid var(--line); border-radius: 17px; min-width: 0; background: white; }
+.technical-grid article:last-child { grid-column: 1 / -1; }
+.technical-index { color: var(--accent); font-size: .8rem; font-weight: 700; }
+.technical-grid h3 { margin: 12px 0; font-size: 1.08rem; }
+.technical-grid p, .evaluation-section > p { margin: 0; color: var(--muted); line-height: 1.8; font-size: .94rem; }
+.evaluation-scroll { margin-top: 24px; overflow-x: auto; border: 1px solid var(--line); border-radius: 14px; }
+.evaluation-scroll table { width: 100%; border-collapse: collapse; font-size: .88rem; text-align: left; }
+.evaluation-scroll th, .evaluation-scroll td { padding: 17px 18px; border-bottom: 1px solid var(--line); }
+.evaluation-scroll thead { background: #f6f3ef; }
+.evaluation-scroll tbody tr:last-child > * { border-bottom: 0; }
+.evaluation-scroll td { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.evaluation-section .evaluation-note { margin-top: 20px; font-size: .82rem; }
+.resource-title { margin-top: 28px; font-size: .9rem; }
+.resource-links { display: grid; gap: 12px; }
+.resource-links .evidence-link { margin-top: 0; line-height: 1.7; }
+.resource-links svg { flex-shrink: 0; }
+@media (max-width: 680px) {
+  .technical-grid { grid-template-columns: 1fr; }
+  .technical-grid article { padding: 21px; }
+  .evaluation-scroll table { min-width: 630px; }
+  .demo-notice { padding: 12px 14px; }
+  .preview-canvas strong { opacity: 1; transform: none; }
+}
 .copy-email-button { display: inline-flex; margin-left: 10px; padding: 4px 10px; border: 1px solid var(--border); border-radius: 8px; background: transparent; color: var(--text-muted); font-size: .75rem; cursor: pointer; }
 .copy-email-button:hover { color: var(--accent); border-color: var(--accent); }
 .submit-button:disabled { opacity: .65; cursor: wait; }
