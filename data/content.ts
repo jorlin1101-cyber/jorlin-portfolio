@@ -98,7 +98,7 @@ export const copy = {
     "viewGithub": "查看 GitHub",
     "openDemo": "打开演示",
     "systemPreview": "系统界面预览",
-    "previewDescription": "以下为系统静态截图。首次加载可能需要等待；可以先阅读案例，再进入演示。",
+    "previewDescription": "下面是系统界面。可以先看看案例，也可以直接进入演示体验。",
     "enterSystem": "进入系统",
     "publicDemoPending": "公网演示地址配置中，本地运行时仍可进入系统。",
     "metrics": "可验证结果",
@@ -113,8 +113,7 @@ export const copy = {
     "backToWork": "返回作品",
     "footer": "一个正在持续迭代的个人作品集。",
     "technical": "关键技术与设计取舍",
-    "evidence": "源码、来源与评测",
-    "coldStart": "首次加载可能需要等待"
+    "evidence": "源码、来源与评测"
   },
   "en": {
     "nav": {
@@ -156,7 +155,7 @@ export const copy = {
     "viewGithub": "View GitHub",
     "openDemo": "Open demo",
     "systemPreview": "System preview",
-    "previewDescription": "Static screenshots of the system. The first load may take a moment; you can read the case study before opening the demo.",
+    "previewDescription": "A look at the system. Read through the case study or open the demo and try it yourself.",
     "enterSystem": "Enter system",
     "publicDemoPending": "The public demo URL is being configured. The system remains available when running locally.",
     "metrics": "Verifiable results",
@@ -171,8 +170,7 @@ export const copy = {
     "backToWork": "Back to work",
     "footer": "A personal portfolio, still under active iteration.",
     "technical": "Technical design and trade-offs",
-    "evidence": "Code, provenance and evaluation",
-    "coldStart": "The first load may take a moment"
+    "evidence": "Code, provenance and evaluation"
   }
 };
 
@@ -207,7 +205,7 @@ export const projects: Record<Language, Project[]> = {
         "启动审查，观察不同角色的任务状态和证据。",
         "查看风险、修复建议、验证结果与完整运行轨迹。"
       ],
-      "demoNote": "访客可查看受控样例并发起审查；修复与管理操作需要更高权限。首次加载可能需要等待。",
+      "demoNote": "访客可查看受控样例并发起审查；修复与管理操作需要更高权限。",
       "metrics": [
         {
           "label": "固定测试集 F1",
@@ -272,7 +270,7 @@ export const projects: Record<Language, Project[]> = {
         "按页面提示查看材料、运行风险画像或咨询助手。",
         "最终授信选择始终由审批人员确认。"
       ],
-      "demoNote": "首次加载可能需要等待。演示使用虚构人员、材料和金额；最终授信由有权限的人员确认。",
+      "demoNote": "演示使用虚构人员、材料和金额；最终授信由有权限的人员确认。",
       "metrics": [
         {
           "label": "政策问答样本",
@@ -295,7 +293,7 @@ export const projects: Record<Language, Project[]> = {
           "将证据、字段修改、计算公式与人工确认保留在同一条可追溯链路中。",
           "通过对照评测观察检索排名与拒答之间的取舍，再决定启用哪些控制。"
         ],
-        "outcome": "形成材料核验、政策证据、规则计算与人工确认的多角色演示流程。2026-08-26 本地 30 题评测中，B 组 MRR 为 70.00%；C 组无答案 F1 为 100%、MRR 为 65.00%，同时带来更高的 P95 检索时延。下表分别展示各组结果。",
+        "outcome": "形成材料核验、政策证据、规则计算与人工确认的多角色演示流程。2026-08-26 本地 30 题评测中，B 组 MRR 为 70.00%；C 组无答案 F1 为 100%、MRR 为 65.00%，同时带来更高的 P95 检索时延。展开测试明细可查看各组结果。",
         "constraints": "人员、申请、金额和内部机构规则均为演示数据；外部政策来自公开资料。评测为历史小样本记录，原始逐题 JSON 未公开，仓库提供数据集、脚本和汇总报告。引用元数据检查不代表最终答案逐句正确；本地/远程模型配置也不代表已实现终端小模型与云模型的动态调度。"
       },
       "technical": [
@@ -321,14 +319,14 @@ export const projects: Record<Language, Project[]> = {
         }
       ],
       "evaluation": {
-        "title": "政策问答 A/B/C 对照",
-        "intro": "2026-08-26 本地 P0 记录：30 题，其中 24 题可回答、6 题不应回答（5 题无答案类别，1 题过期/冲突类别）。各组在相同政策库上运行。",
+        "title": "检索与拒答的取舍",
+        "intro": "我用同一套 30 道政策问题比较了三种做法。混合检索让相关依据排得更靠前；加上版本核验和拒答控制后，系统能识别这批题中证据不足的情况，但检索也更慢了。",
         "headers": [
           "方案",
           "Recall@5",
           "MRR",
           "无答案 F1",
-          "P95 时延"
+          "P95 时延（约）"
         ],
         "rows": [
           [
@@ -336,24 +334,24 @@ export const projects: Record<Language, Project[]> = {
             "100%",
             "64.17%",
             "0%",
-            "1202.84 ms"
+            "1.20 s"
           ],
           [
             "B · 混合检索 + RRF",
             "100%",
             "70.00%",
             "0%",
-            "2360.91 ms"
+            "2.36 s"
           ],
           [
             "C · 核验 / 拒答 / 受控改写",
             "100%",
             "65.00%",
             "100%",
-            "4236.46 ms"
+            "4.24 s"
           ]
         ],
-        "note": "Recall@5 计算中无来源标注的无答案题记为 1；引用元数据检查验证来源、条款和生效日期，不评估生成答案逐句正确性。B 的排名更好，C 增加拒答能力并付出时延代价；以上为已有报告，本次文案更新未重跑模型评测。",
+        "note": "测试日期为 2026-08-26：24 题可回答，6 题需拒答。A/B 未设置拒答门禁，因此无答案 F1 为 0%；C 的 100% 仅对应这批题。Recall@5 按评测脚本计算，其中无来源标注的无答案题记为 1；它不代表回答正确率。时延换算为秒并四舍五入，完整数值与引用检查定义见原始报告。",
         "source": "https://github.com/jorlin1101-cyber/fincredit-copilot/blob/main/docs/evaluation-report.md"
       },
       "resources": [
@@ -407,7 +405,7 @@ export const projects: Record<Language, Project[]> = {
         "在同一对话补充酒店等级、用车需求和导游语言，检查更新后的回复。",
         "公网访客仅体验隔离演示；真实模型与 Notion 写入需受保护的运营配置。"
       ],
-      "demoNote": "首次加载可能需要等待。公网访客使用离线 keyword-RRF 检索与规则回复，不调用付费模型，不写入真实 CRM；演示记录可能随重启清空。",
+      "demoNote": "公网访客使用离线 keyword-RRF 检索与规则回复，不调用付费模型，不写入真实 CRM；演示记录可能随重启清空。",
       "metrics": [
         {
           "label": "检索评测",
@@ -479,7 +477,7 @@ export const projects: Record<Language, Project[]> = {
         "Start the run and follow each reviewer’s task state and evidence.",
         "Inspect findings, proposed fixes, verification results, and the run trace."
       ],
-      "demoNote": "Guests can inspect controlled examples and start reviews; repair and administration require additional permissions. The first load may take a moment.",
+      "demoNote": "Guests can inspect controlled examples and start reviews; repair and administration require additional permissions.",
       "metrics": [
         {
           "label": "Fixed test-set F1",
@@ -544,7 +542,7 @@ export const projects: Record<Language, Project[]> = {
         "Follow the prompts to inspect documents, run a risk profile, or ask the assistant.",
         "Leave the final credit decision to the authorized human reviewer."
       ],
-      "demoNote": "The first load may take a moment. People, documents and amounts are fictional; authorized reviewers retain the final credit decision.",
+      "demoNote": "People, documents and amounts are fictional; authorized reviewers retain the final credit decision.",
       "metrics": [
         {
           "label": "Policy questions",
@@ -567,7 +565,7 @@ export const projects: Record<Language, Project[]> = {
           "Keep evidence, field revisions, formulas and human confirmations in one traceable flow.",
           "Use controlled comparisons to inspect ranking and abstention trade-offs before choosing which controls to enable."
         ],
-        "outcome": "Delivered a multi-role demo connecting document checks, policy evidence, rule calculations and human confirmation. In the local 30-question evaluation on 2026-08-26, B reached 70.00% MRR; C reached 100% no-answer F1 and 65.00% MRR, with higher P95 retrieval latency. The table reports each configuration separately.",
+        "outcome": "Delivered a multi-role demo connecting document checks, policy evidence, rule calculations and human confirmation. In the local 30-question evaluation on 2026-08-26, B reached 70.00% MRR; C reached 100% no-answer F1 and 65.00% MRR, with higher P95 retrieval latency. Expand the test details to see each configuration separately.",
         "constraints": "People, applications, amounts and internal rules are demo data; external policies come from public sources. These are historical small-sample results; per-question JSON is not published, while the dataset, script and summary report are available. Citation metadata checks do not establish sentence-level answer accuracy. Local/remote model configuration does not establish dynamic routing between an on-device small model and a cloud model."
       },
       "technical": [
@@ -593,14 +591,14 @@ export const projects: Record<Language, Project[]> = {
         }
       ],
       "evaluation": {
-        "title": "Policy retrieval: A/B/C comparison",
-        "intro": "Local P0 record dated 2026-08-26: 30 questions, with 24 answerable and 6 requiring abstention (5 in the no-answer category and 1 in the expired/conflicting category). All configurations used the same policy collection.",
+        "title": "Balancing retrieval and abstention",
+        "intro": "I compared three approaches on the same 30 policy questions. Hybrid retrieval ranked relevant evidence higher. Adding version checks and abstention identified insufficient evidence in this test set, but also made retrieval slower.",
         "headers": [
           "Configuration",
           "Recall@5",
           "MRR",
           "No-answer F1",
-          "P95 latency"
+          "P95 latency (approx.)"
         ],
         "rows": [
           [
@@ -608,24 +606,24 @@ export const projects: Record<Language, Project[]> = {
             "100%",
             "64.17%",
             "0%",
-            "1202.84 ms"
+            "1.20 s"
           ],
           [
             "B · Hybrid + RRF",
             "100%",
             "70.00%",
             "0%",
-            "2360.91 ms"
+            "2.36 s"
           ],
           [
             "C · Checks / abstention / controlled rewrite",
             "100%",
             "65.00%",
             "100%",
-            "4236.46 ms"
+            "4.24 s"
           ]
         ],
-        "note": "The Recall@5 calculation assigns 1 to no-answer questions without labeled sources. Citation checks cover provenance metadata, not sentence-level answer accuracy. B ranks better; C adds abstention at a latency cost. These are existing reported results; this content update did not rerun model evaluation.",
+        "note": "Test date: 2026-08-26, with 24 answerable questions and 6 requiring abstention. A/B had no abstention gate, so no-answer F1 was 0%; C’s 100% applies only to this set. The script assigns Recall@5 of 1 to no-answer questions without labeled sources; this is not answer accuracy. Latency is rounded to seconds. The original report retains exact values and citation-check definitions.",
         "source": "https://github.com/jorlin1101-cyber/fincredit-copilot/blob/main/docs/evaluation-report.md"
       },
       "resources": [
@@ -679,7 +677,7 @@ export const projects: Record<Language, Project[]> = {
         "Add hotel, vehicle, and guide preferences in the same conversation and review the updated reply.",
         "Public visitors use an isolated demo; live models and Notion delivery require protected operator configuration."
       ],
-      "demoNote": "The first load may take a moment. Public visitors use offline keyword-RRF retrieval and rule-based replies, with no paid model calls or real CRM writes. Demo records may reset after a restart.",
+      "demoNote": "Public visitors use offline keyword-RRF retrieval and rule-based replies, with no paid model calls or real CRM writes. Demo records may reset after a restart.",
       "metrics": [
         {
           "label": "Retrieval evaluation",

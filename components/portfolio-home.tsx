@@ -41,7 +41,7 @@ const portfolioCopy = {
     nav: ["Home", "Projects", "Experience", "Tools", "Case studies"],
     profileDescription: "AI agent and AI application engineer building resumable execution, tool integration, context management and human review.",
     availability: "Open to AI agent & application roles",
-    heroLead: "I build AI agents with resumable execution, tool integration, context management and human review. Explore three public systems through code, demos and evaluation notes.",
+    heroLead: "Hi, I’m Jorlin. I’m working on AI agents and AI applications. Here you’ll find my projects, demos you can try, and a few things I’ve learned while building them.",
     titleSolid: "AI AGENT",
     titleGhost: "ENGINEER",
     statProjects: "PROJECTS SHIPPED",
@@ -130,7 +130,7 @@ const portfolioCopy = {
     nav: ["首页", "项目", "经历", "工具", "复盘"],
     profileDescription: "AI Agent 与 AI 应用工程师，关注可恢复执行、工具集成、上下文管理与人工确认。",
     availability: "正在寻找 AI Agent 与 AI 应用方向机会",
-    heroLead: "我关注 Agent 的可恢复执行、工具集成、上下文管理与人工确认。这里整理了三个公开 AI 系统的源码、演示与评测说明。",
+    heroLead: "你好，我是 Jorlin，正在做 AI Agent 和 AI 应用。这里有我做过的项目、可以上手的演示，以及一些开发过程中的思考。",
     titleSolid: "AI Agent", titleGhost: "工程师",
     statProjects: "个已完成项目", statDomains: "类 AI 应用场景", statRepos: "个开源应用项目",
     ribbonItems: ["Agent 编排", "RAG 检索", "评测体系", "全栈交付"],
@@ -317,10 +317,9 @@ export function PortfolioHome({ initialLanguage = "zh" }: { initialLanguage?: La
                     </div>
                     <div className="reference-project-body"><h3>{project.name}</h3><p>{project.stack.slice(0, 3).join(" · ")}</p></div>
                   </a>
-                  <p className="demo-wait-home" id={`demo-wait-${project.slug}`}>{language === "zh" ? "首次加载可能需要等待" : "The first load may take a moment"}</p>
                   <div className="project-link-row">
                     <a href={primaryHref}>{ui.caseStudy}<ArrowUpRight size={14} /></a>
-                    {project.demo && <a href={project.demo} target="_blank" rel="noreferrer" aria-describedby={`demo-wait-${project.slug}`}>{ui.liveDemo}<ArrowUpRight size={14} /></a>}
+                    {project.demo && <a href={project.demo} target="_blank" rel="noreferrer">{ui.liveDemo}<ArrowUpRight size={14} /></a>}
                     <a href={project.repo} target="_blank" rel="noreferrer" aria-label={`${project.name} — ${ui.sourceCode}`}>
                       <Github size={14} />{ui.sourceCode}
                     </a>

@@ -56,11 +56,12 @@ export function ProjectDetail({ projects, initialLanguage = "zh" }: { projects: 
     </section>}
     {evaluation && <section className="site-shell evaluation-section">
       <h2>{evaluation.title}</h2><p>{evaluation.intro}</p>
+      <details className="evaluation-details"><summary>{language === "zh" ? "展开 30 题测试明细" : "Explore the 30-question test details"}</summary>
       <div className="evaluation-scroll" role="region" aria-label={evaluation.title} tabIndex={0}>
         <table><thead><tr>{evaluation.headers.map((header) => <th key={header} scope="col">{header}</th>)}</tr></thead><tbody>{evaluation.rows.map((row) => <tr key={row[0]}>{row.map((value, i) => i === 0 ? <th key={i} scope="row">{value}</th> : <td key={i}>{value}</td>)}</tr>)}</tbody></table>
       </div>
       <p className="evaluation-note">{evaluation.note}</p>
-      <a className="evidence-link" href={evaluation.source} target="_blank" rel="noreferrer">{language === "zh" ? "查看完整评测报告" : "Read the complete evaluation report"}<ArrowUpRight size={14} /></a>
+      <a className="evidence-link" href={evaluation.source} target="_blank" rel="noreferrer">{language === "zh" ? "查看完整评测报告" : "Read the complete evaluation report"}<ArrowUpRight size={14} /></a></details>
     </section>}
     <section className="site-shell detail-body"><div>
       <div className="detail-section"><h2>{text.challenge}</h2><p>{project.caseStudy.challenge}</p></div>

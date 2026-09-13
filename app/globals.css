@@ -310,7 +310,6 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .contact-status:empty { display: none; }
 .contact-submit-row { display: grid; grid-template-columns: max-content minmax(0, 1fr); align-items: center; gap: 14px; }
 .contact-status.success { color: #288464; font-size: .78rem; }
-.demo-wait-home { margin: 14px 0 0; color: var(--text-muted); font-size: .75rem; line-height: 1.65; }
 .demo-notice { margin: 0 0 20px; padding: 14px 18px; border-left: 3px solid var(--accent); background: #f6f3ef; color: var(--muted); font-size: .88rem; line-height: 1.75; }
 .technical-section, .evaluation-section { padding-top: 54px; }
 .technical-section > h2, .evaluation-section > h2 { margin: 0 0 24px; font-size: 1.4rem; letter-spacing: -.02em; }
@@ -341,3 +340,8 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .copy-email-button { display: inline-flex; margin-left: 10px; padding: 4px 10px; border: 1px solid var(--border); border-radius: 8px; background: transparent; color: var(--text-muted); font-size: .75rem; cursor: pointer; }
 .copy-email-button:hover { color: var(--accent); border-color: var(--accent); }
 .submit-button:disabled { opacity: .65; cursor: wait; }
+
+.evaluation-details { margin-top: 22px; }
+.evaluation-details > summary { width: fit-content; cursor: pointer; color: var(--accent); font-size: .9rem; font-weight: 650; padding: 10px 0; }
+.evaluation-details > summary:hover { text-decoration: underline; text-underline-offset: 4px; }
+.evaluation-details > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
