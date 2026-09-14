@@ -287,7 +287,7 @@ export function PortfolioHome({ initialLanguage = "zh" }: { initialLanguage?: La
           <div className="orbit orbit-top" aria-hidden="true" />
           <div className="profile-photo-placeholder"><img src="/assets/profile-photo-natural.jpg" alt={language === "zh" ? "石卓灵职业形象照" : "Professional portrait of Jorlin Shi"} /></div>
           <h1>{name}</h1><p>{ui.profileDescription}</p>
-          <div className="profile-socials"><a href={profile.github} target="_blank" rel="noreferrer" aria-label="GitHub"><Github size={20} /></a><a href={`mailto:${profile.email}`} aria-label="Email"><Mail size={20} /></a><a href="/resume-public.pdf" target="_blank" aria-label={ui.resume}><FileText size={20} /></a></div>
+          <div className="profile-socials"><a href={profile.github} target="_blank" rel="noreferrer" aria-label="GitHub"><Github size={20} /></a><a href={`mailto:${profile.email}`} aria-label="Email"><Mail size={20} /></a><a href="/resume-public.pdf?v=20260914" target="_blank" aria-label={ui.resume}><FileText size={20} /></a></div>
           <div className="availability"><span />{ui.availability}</div><div className="orbit orbit-bottom" aria-hidden="true" />
         </div></aside>
 

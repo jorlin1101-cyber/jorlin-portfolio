@@ -2,7 +2,7 @@
 
 石卓灵（Jorlin Shi）的个人 AI Agent 工程作品集，中文为主，支持中英双语切换。
 
-[中文网站](https://jorlinshi.cn/?lang=zh) · [English](https://jorlinshi.cn/?lang=en) · [完整简历](https://jorlinshi.cn/resume-public.pdf)
+[中文网站](https://jorlinshi.cn/?lang=zh) · [English](https://jorlinshi.cn/?lang=en) · [完整简历](https://jorlinshi.cn/resume-public.pdf?v=20260914)
 
 ## 内容
 
