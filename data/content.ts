@@ -192,7 +192,7 @@ export const projects: Record<Language, Project[]> = {
       "accent": "copper",
       "repo": "https://github.com/jorlin1101-cyber/securepr-agent",
       "demo": securePrDemoUrl,
-      "previewImage": "/assets/securepr-ui-preview-v2.png",
+      "previewImage": "/assets/securepr-ui-preview-v3.png",
       "audience": "需要审查代码变更、验证修复建议并保留审计过程的研发与安全团队。",
       "capabilities": [
         "协调多个审查角色分析 PR Diff",
@@ -428,7 +428,7 @@ export const projects: Record<Language, Project[]> = {
       "accent": "copper",
       "repo": "https://github.com/jorlin1101-cyber/securepr-agent",
       "demo": securePrDemoUrl,
-      "previewImage": "/assets/securepr-ui-preview-v2.png",
+      "previewImage": "/assets/securepr-ui-preview-v3.png",
       "audience": "Engineering and security teams that need to review code changes, validate proposed fixes, and preserve an auditable process.",
       "capabilities": [
         "Coordinate specialist reviewers over a PR diff",
