@@ -37,7 +37,7 @@ pnpm dev
 - 科研成果：EI 期刊第一作者论文 1 篇；发明专利申请 1 项（学生第一）。
 - FinCredit 使用 React / Vite、FastAPI、LangGraph 与 pgvector；作品集本身使用 Next.js。
 - FinCredit 指标以 [2026-08-26 本地 P0 报告](https://github.com/jorlin1101-cyber/fincredit-copilot/blob/main/docs/evaluation-report.md)为准：30 题，B 组 MRR 70.00%，C 组 MRR 65.00%、无答案 F1 100%；引用指标不代表答案逐句正确。
-- 下载 PDF 直接在用户原始 V6.1 PDF 上补充项目 GitHub、项目案例和来源直链，原正文、照片与两页排版保留。HTML 提供原版预览、链接编辑、保存与 PDF 下载。
+- 下载 PDF 沿用用户原始 V6.1 的照片与两页排版，包含项目 GitHub、项目案例和来源直链，并于 2026-09-14 修订联系信息排布及模型配置、MCP 服务容错表述。配套 HTML 提供预览、链接编辑、保存与 PDF 下载。
 
 ## 联系
 
@@ -53,6 +53,6 @@ pnpm dev
 
 ## 原版简历与展示修正
 
-- 原 V6.1 正文和照片保留，仅在原有空白处加链接；网站下载与配套预览使用这一份原版补链 PDF。
+- 网站下载与配套预览使用 V6.1 原版补链的措辞修订版；照片及两页版式保留。
 - 删除页面等待提示；首页使用本人确认的自我介绍。
 - 按用户最新要求，移除 FinCredit 中英文页面中的独立评测区域（标题、说明、折叠明细、表格和该区域报告入口）。
