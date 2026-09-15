@@ -191,7 +191,7 @@ const portfolioCopy = {
       ["RAG 与检索", "BGE-M3 · BM25 · RRF · 文档切分 · Grounded Generation"],
       ["后端 API", "Python · FastAPI · Pydantic · REST 工作流"],
       ["数据与状态", "PostgreSQL · SQLite · Redis Streams · 对话记忆"],
-      ["工具集成与模型配置", "MCP / Skill · 多模型配置 · 服务降级 · 人工兜底"],
+      ["工具集成与模型配置", "MCP / Skill · 多模型接入 · 故障分类 · 人工处理"],
       ["评测与质量", "pytest · 检索指标 · 评测集 · Ruff · mypy"],
       ["可观测性", "OpenTelemetry · Prometheus · 日志 · Trace · 失败分析"],
       ["产品前端", "TypeScript · React · Next.js · 中英双语交互"],
@@ -287,7 +287,7 @@ export function PortfolioHome({ initialLanguage = "zh" }: { initialLanguage?: La
           <div className="orbit orbit-top" aria-hidden="true" />
           <div className="profile-photo-placeholder"><img src="/assets/profile-photo-natural.jpg" alt={language === "zh" ? "石卓灵职业形象照" : "Professional portrait of Jorlin Shi"} /></div>
           <h1>{name}</h1><p>{ui.profileDescription}</p>
-          <div className="profile-socials"><a href={profile.github} target="_blank" rel="noreferrer" aria-label="GitHub"><Github size={20} /></a><a href={`mailto:${profile.email}`} aria-label="Email"><Mail size={20} /></a><a href="/resume-public.pdf?v=20260914" target="_blank" aria-label={ui.resume}><FileText size={20} /></a></div>
+          <div className="profile-socials"><a href={profile.github} target="_blank" rel="noreferrer" aria-label="GitHub"><Github size={20} /></a><a href={`mailto:${profile.email}`} aria-label="Email"><Mail size={20} /></a><a href="/resume-public.pdf?v=20260915" target="_blank" aria-label={ui.resume}><FileText size={20} /></a></div>
           <div className="availability"><span />{ui.availability}</div><div className="orbit orbit-bottom" aria-hidden="true" />
         </div></aside>
 

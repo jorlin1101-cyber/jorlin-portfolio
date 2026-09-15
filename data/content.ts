@@ -235,6 +235,10 @@ export const projects: Record<Language, Project[]> = {
         {
           "label": "源码与运行说明",
           "href": "https://github.com/jorlin1101-cyber/securepr-agent/blob/main/README.md"
+        },
+        {
+          "label": "评测方法与结果边界",
+          "href": "https://github.com/jorlin1101-cyber/securepr-agent/blob/main/docs/evaluation-report.md"
         }
       ]
     },
@@ -342,7 +346,7 @@ export const projects: Record<Language, Project[]> = {
       "name": "AI 销售线索决策与 CRM 自动化",
       "eyebrow": "线索判断与客户跟进",
       "summary": "把零散客户事实整理成可解释、可回放的下一步动作。",
-      "role": "产品设计与工程实现",
+      "role": "系统设计与工程实现",
       "year": "2026.04 - 2026.05 · 后续持续维护",
       "stack": [
         "FastAPI",
@@ -471,6 +475,10 @@ export const projects: Record<Language, Project[]> = {
         {
           "label": "Source and run guide",
           "href": "https://github.com/jorlin1101-cyber/securepr-agent/blob/main/README.md"
+        },
+        {
+          "label": "Evaluation method and result boundaries",
+          "href": "https://github.com/jorlin1101-cyber/securepr-agent/blob/main/docs/evaluation-report.md"
         }
       ]
     },
@@ -578,7 +586,7 @@ export const projects: Record<Language, Project[]> = {
       "name": "AI Sales Lead Decision & CRM Automation",
       "eyebrow": "Lead decisions & customer follow-up",
       "summary": "Turning scattered customer facts into explainable next actions.",
-      "role": "Product design & engineering",
+      "role": "System design & engineering",
       "year": "2026.04 - 2026.05 · maintained thereafter",
       "stack": [
         "FastAPI",

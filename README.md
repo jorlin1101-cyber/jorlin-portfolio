@@ -2,7 +2,7 @@
 
 石卓灵（Jorlin Shi）的个人 AI Agent 工程作品集，中文为主，支持中英双语切换。
 
-[中文网站](https://jorlinshi.cn/?lang=zh) · [English](https://jorlinshi.cn/?lang=en) · [完整简历](https://jorlinshi.cn/resume-public.pdf?v=20260914)
+[中文网站](https://jorlinshi.cn/?lang=zh) · [English](https://jorlinshi.cn/?lang=en) · [完整简历](https://jorlinshi.cn/resume-public.pdf?v=20260915)
 
 ## 内容
 
@@ -37,7 +37,8 @@ pnpm dev
 - 科研成果：EI 期刊第一作者论文 1 篇；发明专利申请 1 项（学生第一）。
 - FinCredit 使用 React / Vite、FastAPI、LangGraph 与 pgvector；作品集本身使用 Next.js。
 - FinCredit 指标以 [2026-08-26 本地 P0 报告](https://github.com/jorlin1101-cyber/fincredit-copilot/blob/main/docs/evaluation-report.md)为准：30 题，B 组 MRR 70.00%，C 组 MRR 65.00%、无答案 F1 100%；引用指标不代表答案逐句正确。
-- 下载 PDF 沿用用户原始 V6.1 的照片与两页排版，包含项目 GitHub、项目案例和来源直链，并于 2026-09-14 修订联系信息排布及模型配置、MCP 服务容错表述。配套 HTML 提供预览、链接编辑、保存与 PDF 下载。
+- `public/resume-public.pdf` 是当前对外简历，`public/resume-editable.html` 是对应的可编辑母版。母版保留 V6.1 的照片与两页排版，包含项目 GitHub、项目案例和来源直链；编辑器支持正文修改、加粗、撤销/重做、恢复母版、行距与条目间距调节、HTML 保存和 PDF 导出。
+- `public/archive/` 中的简历仅供历史回溯，已经标为归档，不用于对外发送。
 
 ## 联系
 
