@@ -2,7 +2,7 @@
 
 石卓灵（Jorlin Shi）的个人 AI Agent 工程作品集，中文为主，支持中英双语切换。
 
-[中文网站](https://jorlinshi.cn/?lang=zh) · [English](https://jorlinshi.cn/?lang=en) · [完整简历](https://jorlinshi.cn/resume-public.pdf?v=20260915)
+[中文网站](https://jorlinshi.cn/?lang=zh) · [English](https://jorlinshi.cn/?lang=en) · [完整简历](https://jorlinshi.cn/resume-public.pdf?v=20260916)
 
 ## 内容
 
@@ -34,10 +34,10 @@ pnpm dev
 - SecurePR Agent 主要开发周期：2026.05 - 2026.07；FinCredit Copilot：2026.07 - 2026.09；后续持续维护。
 - 科研：2023.06 - 2025.06；北京润科通用技术有限公司：2025.07 - 2026.01。
 - 教育：电子科技大学电子信息硕士（2022.09 - 2025.06）；西南石油大学电子信息科学与技术本科（2017.09 - 2021.06）。
-- 科研成果：EI 期刊第一作者论文 1 篇；发明专利申请 1 项（学生第一）。
+- 科研成果：EI 期刊第一作者论文 1 篇；发明专利 1 项（学生第一）。
 - FinCredit 使用 React / Vite、FastAPI、LangGraph 与 pgvector；作品集本身使用 Next.js。
-- FinCredit 指标以 [2026-08-26 本地 P0 报告](https://github.com/jorlin1101-cyber/fincredit-copilot/blob/main/docs/evaluation-report.md)为准：30 题，B 组 MRR 70.00%，C 组 MRR 65.00%、无答案 F1 100%；引用指标不代表答案逐句正确。
-- `public/resume-public.pdf` 是当前对外简历，`public/resume-editable.html` 是对应的可编辑母版。母版保留 V6.1 的照片与两页排版，包含项目 GitHub、项目案例和来源直链；编辑器支持正文修改、加粗、撤销/重做、恢复母版、行距与条目间距调节、HTML 保存和 PDF 导出。
+- FinCredit 对外口径与简历一致：30 道本地政策问答对照测试，混合检索将 MRR 从 64.17% 提升至 70.00%。更细的 A/B/C 记录见项目评测报告，不作为首页主指标。
+- `public/resume-public.pdf` 是当前对外简历（V7），`public/resume-editable.html` 是对应的可编辑母版。母版保留照片与两页排版，包含项目 GitHub、项目案例和来源直链。
 - `public/archive/` 中的简历仅供历史回溯，已经标为归档，不用于对外发送。
 
 ## 联系
@@ -52,8 +52,14 @@ pnpm dev
 - 销售项目沿用 2026-09-08 复核记录：699 通过、2 项 PostgreSQL 测试跳过、95.21% 覆盖率；当前 n8n 为七路分支。
 - 三个演示保留静态截图与案例；中文、英文使用一致的事实和评测条件。
 
+## 2026-09-16 简历同步
+
+- 对外 PDF 与可编辑 HTML 更新为 V7；上一版归档到 `public/archive/`。
+- 首页、项目指标与荣誉表述按 V7 对齐：专利不写“申请”，FinCredit 主指标为 MRR 64.17% → 70.00%，科研标题与 MAPE 口径与简历一致。
+- 语言技能（英语六级、日语 N2）写入技术栈。
+
 ## 原版简历与展示修正
 
-- 网站下载与配套预览使用 V6.1 原版补链的措辞修订版；照片及两页版式保留。
+- 网站下载与配套预览使用 V7 母版；照片及两页版式保留，V7 之前的版本见 `public/archive/`。
 - 删除页面等待提示；首页使用本人确认的自我介绍。
 - 按用户最新要求，移除 FinCredit 中英文页面中的独立评测区域（标题、说明、折叠明细、表格和该区域报告入口）。

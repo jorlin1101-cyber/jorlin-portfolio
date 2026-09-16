@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="zh-CN" style="--resume-line-height: 1.51; --item-gap: 1.45mm;"><head>
+<html lang="zh-CN">
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>石卓灵 - AI Agent 工程师简历</title>
 <style>
-:root{--resume-line-height:1.49;--item-gap:1.45mm;--ink:#191919;--muted:#6b6b6b;--bar:#f2f4f6}
+:root{--resume-line-height:1.57;--item-gap:1.70mm;--ink:#191919;--muted:#6b6b6b;--bar:#f2f4f6}
 *{box-sizing:border-box}
 html{background:#e9ecef}
 body{margin:0;color:var(--ink);font-family:"Microsoft YaHei","Noto Sans CJK SC",Arial,sans-serif;background:#e9ecef}
@@ -32,17 +33,17 @@ ul{margin:.65mm 0 0;padding-left:5.2mm}li{padding-left:.15mm;margin:0 0 var(--it
   <div class="toolbar-title"><span class="master-badge">当前母版</span><div><strong>石卓灵 · 简历编辑器</strong><p>两页 A4；正文可编辑，支持加粗、撤销/重做、行距和条目间距调节。</p></div></div>
   <div class="actions">
     <button id="editBtn" aria-pressed="false">编辑正文</button>
-    <button id="boldBtn" disabled=""><b>B</b> 加粗</button>
-    <button id="undoBtn" disabled="">撤销</button>
-    <button id="redoBtn" disabled="">重做</button>
-    <label class="control">行距 <input id="lineHeight" type="range" min="1.36" max="1.65" value="1.49" step="0.01"><output id="lineHeightOut">1.51</output></label>
-    <label class="control">条目间距 <input id="itemGap" type="range" min="0.8" max="2.1" value="1.45" step="0.05"><output id="itemGapOut">1.45</output></label>
+    <button id="boldBtn" disabled><b>B</b> 加粗</button>
+    <button id="undoBtn" disabled>撤销</button>
+    <button id="redoBtn" disabled>重做</button>
+    <label class="control">行距 <input id="lineHeight" type="range" min="1.36" max="1.65" value="1.57" step="0.01"><output id="lineHeightOut">1.57</output></label>
+    <label class="control">条目间距 <input id="itemGap" type="range" min="0.8" max="2.1" value="1.70" step="0.05"><output id="itemGapOut">1.70</output></label>
     <button id="saveBtn">保存 HTML</button>
     <button id="printBtn" class="primary">导出 PDF</button>
     <button id="resetBtn">恢复母版</button>
   </div>
 </div>
-<p id="status" role="status" aria-live="polite" class="">已载入保存的简历，可继续编辑或导出 PDF。</p>
+<p id="status" role="status" aria-live="polite">已载入作品集仓库中的 resume-public 母版。</p>
 <main id="resume" contenteditable="false" spellcheck="false">
 <article class="paper" data-page="1">
 <header class="resume-header">
@@ -55,25 +56,25 @@ ul{margin:.65mm 0 0;padding-left:5.2mm}li{padding-left:.15mm;margin:0 0 var(--it
 <section><h2>教育背景</h2>
   <div class="edu"><strong>电子科技大学</strong><span>电子信息（硕士）</span><time>2022.09 - 2025.06</time></div>
   <div class="edu"><strong>西南石油大学</strong><span>电子信息科学与技术（本科）</span><time>2017.09 - 2021.06</time></div>
-  <p class="small-line">●　<strong>科研成果：</strong>EI期刊第一作者论文1篇；发明专利1项（学生第一）</p>
+  <p class="small-line">●　<strong>科研成果：</strong>EI期刊第一作者论文1篇；发明专利申请1项（学生第一）</p>
   <p class="small-line">●　<strong>竞赛荣誉：</strong>全国大学生数模省一等奖、MCM H奖（队长）；优秀研究生、研究生学业二等奖学金</p>
 </section>
 <section class="skills"><h2>专业技能</h2><ul>
-  <li><strong>Agent 架构与编排：</strong>熟悉 LangGraph、多 Agent 协作与 ReAct 工具调用；能够设计 Tool Registry、Schema 校验及 Human-in-the-loop 两阶段确认流程</li>
-  <li><strong>记忆与上下文管理：</strong>Working/Episodic/Semantic 分层记忆、Token Budget 上下文裁剪，Checkpoint / Resume 的任务恢复</li>
-  <li><strong>工具与协议集成：</strong>使用 MCP（Streamable HTTP）和 Agent Skill 接入外部能力，支持工具注册、版本管理、结构化输入输出及调用错误处理</li>
-  <li><strong>多模型接入与故障处理：</strong>按文本、视觉、向量用途配置模型，支持本地或远程 embedding、维度校验，超时、限流、连接异常和 5xx 分类处理</li>
-  <li><strong>RAG 与评测：</strong>掌握 Hybrid RAG、PostgreSQL 全文检索、pgvector 与 RRF；支持版本和生效期过滤、引用核验、无答案拒答，以及 Recall@K、MRR、nDCG、No-answer F1 评测</li>
-  <li><strong>安全治理与可观测：</strong>RBAC、租户与仓库隔离、PII 脱敏和审计记录； OpenTelemetry、Prometheus</li>
-  <li><strong>工程开发与交付：</strong>熟悉 Python、FastAPI、Pydantic、PostgreSQL、SQLAlchemy、Alembic、Docker；具备 C/C++ 与 Python 跨语言集成、MATLAB / Simulink 建模及实时性能验证经验</li><li><b>语言技能：</b>英语六级、日语N2</li>
+  <li><strong>Agent 架构与编排：</strong>LangGraph；多 Agent 编排；ReAct 式工具调用循环；Tool Registry 与 Schema 校验；Human-in-the-loop 两阶段确认</li>
+  <li><strong>记忆与上下文管理：</strong>三层记忆（Working / Episodic / Semantic）；Token Budget 自适应上下文保留；Checkpoint / Resume</li>
+  <li><strong>工具与协议集成：</strong>MCP 工具服务（Streamable HTTP）；Agent Skill 注册、版本化与激活门禁；REST / Webhook（HMAC-SHA256）；Redis Streams（ACK / Lease / DLQ）</li>
+  <li><strong>多模型接入与故障处理：</strong>按文本、视觉、向量用途配置模型，支持本地或远程 embedding 与维度校验；对超时、限流、连接异常和 5xx 分类，返回结构化错误、可重试标记及人工处理入口</li>
+  <li><strong>安全与隐私：</strong>RBAC 与角色级数据范围；租户 / 仓库隔离；PII 脱敏；不可变审计与危险操作过滤</li>
+  <li><strong>检索与知识工程：</strong>Hybrid RAG；PostgreSQL + pgvector；引用元数据校验与无答案拒答；Recall@K / MRR / nDCG / No-answer F1 评测</li>
+  <li><strong>工程与可观测：</strong>Python / FastAPI / Pydantic；PostgreSQL / SQLAlchemy / Alembic；Docker / Compose；C / C++ / Python 跨语言集成；MATLAB / Simulink 与实时性能验证；OpenTelemetry / Prometheus / MLflow</li>
 </ul></section>
 <section><h2>项目经历</h2>
-  <div class="project-title"><h3>SecurePR Agent｜多Agent PR审查与安全修复系统(个人项目)&nbsp;<span style="font-weight: normal;"><a class="project-link" href="https://github.com/jorlin1101-cyber/securepr-agent" style="display: inline !important;">GitHub - SecurePR Agent</a>&nbsp;<a class="project-link" href="https://jorlinshi.cn/projects/securepr-agent?lang=zh" style="display: inline !important;">项目详情</a></span></h3><time>2026.05 - 2026.07</time></div>
+  <div class="project-title"><h3>SecurePR Agent｜多Agent PR审查与安全修复系统（个人项目）</h3><a class="project-link" href="https://github.com/jorlin1101-cyber/securepr-agent">GitHub - SecurePR Agent</a><a class="project-link" href="https://jorlinshi.cn/projects/securepr-agent?lang=zh">项目详情</a><time>2026.05 - 2026.07</time></div>
   <p class="intro"><strong>项目介绍：</strong>面向 PR 风险发现与安全修复场景，构建可恢复 Agent Runtime Harness 与多 Agent 协作系统，覆盖代码风险识别、证据复核、受限修复、编译测试、Draft PR 交付及评测驱动演进。</p>
   <p class="label">技术亮点：</p><ul class="compact">
     <li><strong>可恢复 Runtime Harness：</strong>针对长流程 Agent 的中断、调用失败及预算失控问题，统一管理<strong>任务状态、Token/时间预算、自动重试、持久化 Checkpoint、断点续跑与 Run Trace</strong>；接入 OpenTelemetry 和 Prometheus，实现执行链路<strong>可观测、可中断、可恢复</strong>。</li>
     <li><strong>多 Agent 审查与安全修复：</strong>构建 Lead → Specialists 并行审查 → Critic 独立复核 → Lead 汇总决策的协作链路；结合仓库检索、静态扫描、AST 与测试证据确认风险，由受限 Fixer 生成补丁，Verifier 通过<strong>编译与测试门禁</strong>后创建 Draft PR。</li>
-    <li><strong>评测驱动的 Prompt/Skill 演进：</strong>将误报、漏报、坏修复及运行异常沉淀为失败案例，自动生成候选 Prompt 与 SKILL.md；通过<strong>Validation + Holdout 非退化</strong>双门禁决定版本激活，并支持<strong>候选去重、版本审计与一键回滚</strong>。</li>
+    <li><strong>评测驱动的 Prompt/Skill 演进：</strong>将误报、漏报、坏修复及运行异常沉淀为失败案例，自动生成候选 Prompt 与 SKILL.md；通过<strong>Validation 提升 + 隐藏 Holdout 非退化</strong>双门禁决定版本激活，并支持<strong>候选去重、版本审计与一键回滚</strong>。</li>
     <li><strong>上下文压缩与分层记忆：</strong>在 Token 预算内优先保留高风险证据、历史 Observation 与 Critic 反馈，构建 Working、Episodic、Semantic <strong>三层记忆</strong>，支持按租户和仓库隔离检索及任务归档。</li>
     <li><strong>可复现离线评测：</strong>构建<strong>100 条合成受控 PR Diff</strong>，包含 40 条风险样本和 60 条干净样本，并按文件路径、行号区间与 CWE 类型进行一对一匹配；固定评测口径下，候选方案 <strong>F1 从 81.9% 提升至 91.3%（+9.4 个百分点），高风险召回率从 84.2% 提升至 94.7%（+10.5 个百分点），干净 PR 准确率达到 91.7%</strong>。</li>
   </ul>
@@ -82,38 +83,37 @@ ul{margin:.65mm 0 0;padding-left:5.2mm}li{padding-left:.15mm;margin:0 0 var(--it
 
 <article class="paper" data-page="2">
 <section>
-  <div class="project-title"><h3>FinCredit Copilot｜多智能体住房金融授信辅助平台(个人项目)&nbsp;<a class="project-link" href="https://github.com/jorlin1101-cyber/fincredit-copilot" style="display: inline !important; font-weight: normal;">GitHub - FinCredit Copilot</a><span style="font-weight: normal;">&nbsp;<a class="project-link" href="https://jorlinshi.cn/projects/fincredit-copilot?lang=zh" style="display: inline !important;">项目详情</a></span></h3><time>2026.07 - 2026.09</time></div>
-  <p class="intro"><strong>项目描述：</strong>基于 Red Hat AI Quickstart 开源项目“multi-agent-loan-origination（Apache-2.0）”二次开发。<b>负责中国住房贷款场景所需的中文材料核验、政策知识库、确定性计算、MCP 工具接入和人工审批流程</b>。Agent 负责语义理解与流程编排，授信计算和最终决策由代码与授权人员完成；上游来源与个人改动通过<a href="https://github.com/jorlin1101-cyber/fincredit-copilot/blob/main/UPSTREAM.md">UPSTREAM</a>、<a href="https://github.com/jorlin1101-cyber/fincredit-copilot/blob/main/CONTRIBUTIONS.md">CONTRIBUTIONS</a>公开记录。</p>
+  <div class="project-title"><h3>FinCredit Copilot｜多智能体住房金融授信辅助平台（个人项目）</h3><a class="project-link" href="https://github.com/jorlin1101-cyber/fincredit-copilot">GitHub - FinCredit Copilot</a><a class="project-link" href="https://jorlinshi.cn/projects/fincredit-copilot?lang=zh">项目详情</a><time>2026.07 - 2026.09</time></div>
+  <p class="intro"><strong>项目描述：</strong>基于 Red Hat AI Quickstart 开源项目“multi-agent-loan-origination（Apache-2.0）”二次开发。面向中国住房贷款场景构建覆盖材料感知、政策检索、风险计算与人工审批的 Agent 平台。本人负责全部中国场景改造；Agent 负责语义理解与流程编排，DTI / LTV 等关键计算交由确定性工具执行。<a href="https://github.com/jorlin1101-cyber/fincredit-copilot/blob/main/UPSTREAM.md">UPSTREAM</a> · <a href="https://github.com/jorlin1101-cyber/fincredit-copilot/blob/main/CONTRIBUTIONS.md">CONTRIBUTIONS</a></p>
   <p class="label">技术亮点：</p><ul class="compact">
-    <li><strong>多模态材料感知：</strong>对身份证、收入证明与银行流水执行<strong>逐页文本与视觉（Qwen-VL）双通道抽取</strong>，记录字段置信度及证据页码与位置；自动标记跨材料冲突和缺失项，低置信度字段进入人工复核并保留修订记录。</li>
-    <li><strong>确定性工具边界与人机协同：</strong>DTI、LTV、材料完整性与一致性门禁由<strong>确定性代码计算</strong>，保留计算输入、公式与规则版本；Agent 只生成待确认建议，最终决策须经“提案生成到权限人员确认”两阶段完成，<strong>模型无法自动批准或拒绝</strong>。</li>
-    <li><strong>MCP 工具集成与服务容错：</strong>通过 MCP Streamable HTTP 和 langchain-mcp-adapters 接入政策检索、确定性计算与人工审批工具；预测模型服务不可用时，风险评估工具、确定性计算和人工审批流程仍可运行；对限流、超时、连接失败和 5xx 返回结构化错误及可重试标记。</li>
-    <li><b>受控 Agentic RAG 与评测：</b>构建基于 pgvector、PostgreSQL 全文检索与 RRF 融合的政策知识库，按辖区、版本和生效期筛选证据；Agent 根据证据充分性在直接回答、改写重检和拒答转人工之间路由，并将重检限制为一次。通过 30 道本地政策问答进行<b>对照测试</b>，混合检索将 <b>MRR 从 64.17% 提升至 70.00%</b>；使用 trace_id 串联检索、模型调用与人工处理记录<span style="font-size: 10.15pt;">。</span></li>
+    <li><strong>多模态材料感知：</strong>对身份证、收入证明与银行流水执行<strong>逐页文本与视觉（Qwen-VL）双通道抽取</strong>，输出字段置信度、页码与证据位置；跨材料一致性核验自动标记冲突与缺失，低置信度字段转入人工复核并保留修订历史。</li>
+    <li><strong>确定性工具边界与人机协同：</strong>DTI、LTV、材料完整性与一致性门禁由<strong>确定性代码计算</strong>，保留计算输入、公式与规则版本；Agent 只生成待确认建议，最终决策须经“提案生成 → 有权限人员确认”两阶段完成，<strong>模型无法自动批准或拒绝</strong>。</li>
+    <li><strong>MCP 工具集成与服务容错：</strong>基于 MCP（Streamable HTTP）完成中国场景工具适配与测试重写，通过 langchain-mcp-adapters 接入审批 Agent；可选预测模型 MCP 服务不可用时，继续保留风险评估工具、确定性计算和人工审批流程；按文本、视觉、向量用途配置模型，支持本地或远程 embedding 接入与维度校验；对限流、超时、连接失败及 5xx 分类，返回结构化错误和可重试标记。</li>
+    <li><strong>受控 Agentic RAG 与评测：</strong>构建 pgvector + PostgreSQL 全文检索的混合政策知识库（RRF 融合，支持辖区 / 版本 / 生效期过滤），证据不足时最多一次受控改写并触发无答案拒答转人工。30 条政策问答 A/B/C 对照评测显示：混合检索 + RRF 将 <strong>MRR 从 64.17% 提升至 70.00%</strong>，加入版本核验与拒答门禁后<strong>无答案 F1 从 0% 提升至 100%</strong>；全链路以 trace_id 聚合模型调用、检索、规则计算与人工决策。</li>
+    <li><strong>开源协作与贡献边界：</strong>维护 UPSTREAM.md / CONTRIBUTIONS.md，以基线提交区分上游与本人改动（新增 100 个文件、修改 229 个文件），可通过 git diff 复现。</li>
   </ul>
 </section>
 <section><h2>工作经历</h2>
   <div class="job-title"><h3>北京润科通用技术有限公司</h3><strong>仿真建模工程师</strong><time>2025.07 - 2026.01</time></div><ul class="compact">
     <li><strong>需求分析与项目交付：</strong>面向仿真软件平台及国标充电协议项目，从客户协议与需求文档中完成需求提取、分类、编号及追踪；独立搭建 Simulink 充电协议模型与报文收发原型，完成平台接入、演示评审与测试验收支持。</li>
-    <li><strong>跨语言系统集成：</strong>针对 C++ 软件平台调用 Python 模型的需求，<b>开发 C++ ↔ Python 跨语言调用链</b>，处理调用入口、参数与数据类型转换、返回值及异常映射，并集成至公司平台稳定运行。</li>
-    <li><strong>模型集成与性能验证：</strong>完成 Simulink / C/C++ 模型及反射内存数据接口与产品平台集成，开展<b>实时性能测试</b>，核心仿真周期<strong>&lt;400 μs</strong>；编写 Bash 脚本及调试、验收文档，支持项目交付。</li>
+    <li><strong>跨语言系统集成：</strong>针对 C++ 软件平台调用 Python 模型的需求，开发 C++ ↔ Python 跨语言调用链，处理调用入口、参数与数据类型转换、返回值及异常映射，并集成至公司平台稳定运行。</li>
+    <li><strong>模型集成与性能验证：</strong>完成 Simulink / C/C++ 模型及反射内存数据接口与产品平台集成，开展实时性能测试，核心仿真周期 <strong>&lt; 400 μs</strong>；编写 Bash 脚本及调试、验收文档，支持项目交付。</li>
   </ul>
 </section>
 <section><h2>科研经历</h2>
-  <div class="project-title"><h3>物理先验引导的自由空间光通信链路建模与性能预测</h3><time>2023.06 - 2025.06</time></div>
-  <p class="intro"><strong>项目介绍：</strong>面向自由空间光通信链路中解析模型精度受限、全链路仿真成本较高的问题，研究融合物理先验与数据驱动模型的性能预测方法，用于接收功率、误码率和中断概率预测。</p>
+  <div class="project-title"><h3>物理模型引导的复杂通信系统 AI 建模与性能预测</h3><time>2023.06 - 2025.06</time></div>
+  <p class="intro"><strong>项目介绍：</strong>面向自由空间光通信链路，针对解析模型精度受限与全链路仿真成本较高的问题，研究物理先验与数据驱动模型结合的性能预测方案。</p>
   <p class="label">技术亮点：</p><ul class="compact">
-    <li><strong>数据闭环搭建：</strong>基于自研 MATLAB 链路仿真模型，批量生成不同参数组合下的接收功率与误码率（BER）数据，完成数据清洗、标准化、训练和验证流程，并按参数组合划分训练集与测试集。</li>
-    <li><strong>物理先验引导建模：</strong>以理论解析表达式作为物理先验，设计<strong>残差网络</strong>学习解析模型与仿真结果之间的残差；在未参与训练的参数组合测试集上，接收功率 MAPE 由纯解析模型的 15.1% 降至 8.7%，R² 达到 0.95。</li>
-    <li><strong>概率建模与推理加速：</strong> 使用条件归一化流建模接收功率的条件概率分布，并据此预测中断概率与误码率；相较高斯参数化分布拟合，Wasserstein 距离降低 15%；在 CPU 环境下，相较 MATLAB 全链路仿真，单工况耗时由 12.5 秒降至 3 秒，约提升 4.2 倍。</li>
+    <li><strong>数据闭环搭建：</strong>基于自研 MATLAB 仿真模型批量生成多参数组合下的接收功率、误码率（BER）训练数据，构建标准化数据处理流水线。</li>
+    <li><strong>物理先验引导建模（Physics-Guided）：</strong>以理论解析表达式作为物理先验，设计<strong>残差网络</strong>学习解析模型与仿真结果之间的残差；<strong>平均功率预测误差由 15.1% 降至 8.7%，R² 达 0.95</strong>。</li>
+    <li><strong>概率建模与推理加速：</strong>引入<strong>条件归一化流</strong>建模条件性能分布，覆盖接收功率的<strong>概率密度函数（PDF）</strong>、中断概率与误码率（BER）预测；<strong>Wasserstein 距离下降 15%，单工况推理耗时由 12.5 s 降至 3 s（约 4.2×）</strong>。</li>
   </ul>
 </section>
 <section><h2>其他项目</h2>
   <div class="project-title"><h3>AI 销售线索决策与 CRM 自动化系统</h3><a class="project-link" href="https://github.com/jorlin1101-cyber/ai-sales-lead-crm-automation">GitHub - AI 销售线索</a><a class="project-link" href="https://jorlinshi.cn/projects/ai-sales-lead-crm-automation?lang=zh">项目详情</a><time>2026.04 - 2026.05</time></div>
-  <p class="intro"><strong>项目介绍：</strong>面向邮件、网站表单等销售线索，构建事实提取、产品检索、确定性评分、人工审核与 CRM 同步流程；LLM 负责结构化理解和回复草稿，规则引擎负责最终评分。</p>
-  <p class="label">技术亮点：</p><ul class="compact">
-    <li><strong>多轮状态与可靠交付：</strong>分离历史事实与当前消息，支持偏好补充和更正；使用 BGE-M3、BM25 与 RRF 检索产品手册，草稿经人工审核后同步 CRM，并加入版本校验和幂等重试。</li>
-  </ul>
+  <p class="intro"><strong>项目介绍：</strong>把销售线索清洗、多轮事实抽取、版本化评分和跟进建议接入同一条可回放流程；LLM 只提取受约束事实并起草回复，确定性引擎负责评分，人工审核后同步 CRM。2026-09 复核：<strong>699 项通过、2 项 PostgreSQL 实机测试跳过，覆盖率 95.21%</strong>；18 条人工标注查询的 <strong>MRR@3 = 1.0000、nDCG@3 = 0.8331</strong>。</p>
 </section>
+<p class="languages"><strong>语言能力：</strong>英语 CET-6｜日语 JLPT N2</p>
 </article>
 </main>
 <script>
@@ -128,7 +128,7 @@ const itemGap=document.getElementById('itemGap');
 const lineHeightOut=document.getElementById('lineHeightOut');
 const itemGapOut=document.getElementById('itemGapOut');
 const storageKey='jorlin-resume-public-v61-master';
-const canonical={html:resume.innerHTML,lineHeight:'1.49',itemGap:'1.45'};
+const canonical={html:resume.innerHTML,lineHeight:'1.57',itemGap:'1.70'};
 let editing=false;
 function say(message,warning=false){status.textContent=message;status.classList.toggle('warning',warning)}
 function overflowPages(){return [...document.querySelectorAll('.paper')].filter(p=>p.scrollHeight>p.clientHeight+1).map(p=>p.dataset.page)}
@@ -153,7 +153,5 @@ document.getElementById('printBtn').addEventListener('click',()=>{if(!checkLayou
 document.getElementById('resetBtn').addEventListener('click',()=>{if(!confirm('恢复仓库母版内容并清除当前浏览器暂存吗？'))return;resume.innerHTML=canonical.html;applyLayout(canonical.lineHeight,canonical.itemGap);try{localStorage.removeItem(storageKey)}catch{}say('已恢复仓库母版内容。')});
 window.addEventListener('load',()=>{applyLayout(lineHeight.value,itemGap.value);checkLayout()});
 </script>
-
-
-
-</body></html>
+</body>
+</html>

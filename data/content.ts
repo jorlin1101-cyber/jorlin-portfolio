@@ -80,14 +80,14 @@ export const copy = {
     ],
     "timeline": [
       {
-        "period": "2025.07 — 2026.01",
-        "title": "仿真建模工程师",
-        "detail": "C++ / Python 跨语言接口、Simulink 模型与性能验证"
+        "period": "2026.04 — 2026.09",
+        "title": "AI Agent 与 AI 应用工程实践",
+        "detail": "完成 SecurePR、FinCredit 与销售线索三个公开系统"
       },
       {
-        "period": "2026.04 — 至今",
-        "title": "AI 应用项目实践",
-        "detail": "围绕 Agent、RAG、CRM 和代码安全完成三个可运行项目"
+        "period": "2025.07 — 2026.01",
+        "title": "仿真建模工程师",
+        "detail": "北京润科通用技术有限公司；C++ / Python 跨语言接口、Simulink 模型与性能验证"
       }
     ],
     "contactKicker": "03 — SAY HELLO",
@@ -137,14 +137,14 @@ export const copy = {
     ],
     "timeline": [
       {
-        "period": "2025.07 — 2026.01",
-        "title": "Simulation Modeling Engineer",
-        "detail": "C++ / Python interfaces, Simulink models, and performance validation"
+        "period": "Apr 2026 — Sep 2026",
+        "title": "AI agent and application engineering",
+        "detail": "Three public systems: SecurePR, FinCredit, and sales-lead automation"
       },
       {
-        "period": "Apr 2026 — Present",
-        "title": "Independent AI projects",
-        "detail": "Three working projects across agents, RAG, CRM, and code security"
+        "period": "Jul 2025 — Jan 2026",
+        "title": "Simulation Modeling Engineer",
+        "detail": "Beijing Runke; C++ / Python interfaces, Simulink models, and performance validation"
       }
     ],
     "contactKicker": "03 — SAY HELLO",
@@ -211,12 +211,12 @@ export const projects: Record<Language, Project[]> = {
           "value": "81.9% → 91.3%"
         },
         {
-          "label": "干净 PR 准确率",
-          "value": "91.7%"
+          "label": "高风险召回率",
+          "value": "84.2% → 94.7%"
         },
         {
-          "label": "可复现样本",
-          "value": "100 条"
+          "label": "干净 PR 准确率",
+          "value": "91.7%"
         }
       ],
       "caseStudy": {
@@ -280,23 +280,23 @@ export const projects: Record<Language, Project[]> = {
           "value": "30 题"
         },
         {
-          "label": "B 组 MRR",
-          "value": "70.00%"
+          "label": "混合检索 MRR",
+          "value": "64.17% → 70.00%"
         },
         {
-          "label": "C 组无答案 F1",
-          "value": "100%"
+          "label": "结果原则",
+          "value": "计算确定 · 人工确认"
         }
       ],
       "caseStudy": {
-        "context": "基于 Red Hat AI Quickstart 的 multi-agent-loan-origination（Apache-2.0）二次开发，面向中国住房贷款场景完成材料核验、政策检索、确定性工具和人工审批适配。",
+        "context": "基于 Red Hat AI Quickstart 开源项目 multi-agent-loan-origination（Apache-2.0）二次开发。负责中国住房贷款场景所需的中文材料核验、政策知识库、确定性计算、MCP 工具接入和人工审批流程；授信计算和最终决策由代码与授权人员完成。",
         "challenge": "材料字段分散在不同文件，政策又受地域、版本和生效期约束。需要让 Agent 帮助理解与编排，同时把数值计算、权限检查和最终授信保留在可验证的流程中。",
         "approach": [
           "先明确材料、政策、计算与最终决策的职责，再将中文材料和规则接入已有角色流程。",
           "将证据、字段修改、计算公式与人工确认保留在同一条可追溯链路中。",
           "通过对照评测观察检索排名与拒答之间的取舍，再决定启用哪些控制。"
         ],
-        "outcome": "形成材料核验、政策证据、规则计算与人工确认的多角色演示流程。2026-08-26 本地 30 题评测中，B 组 MRR 为 70.00%；C 组无答案 F1 为 100%、MRR 为 65.00%，同时带来更高的 P95 检索时延。",
+        "outcome": "形成材料核验、政策证据、规则计算与人工确认的多角色演示流程。30 道本地政策问答对照测试中，混合检索将 MRR 从 64.17% 提升至 70.00%；证据不足时最多一次改写，否则拒答并转人工。",
         "constraints": "人员、申请、金额和内部机构规则均为演示数据；外部政策来自公开资料。评测为历史小样本记录，原始逐题 JSON 未公开，仓库提供数据集、脚本和汇总报告。引用元数据检查不代表最终答案逐句正确；本地/远程模型配置也不代表已实现终端小模型与云模型的动态调度。"
       },
       "technical": [
@@ -347,7 +347,7 @@ export const projects: Record<Language, Project[]> = {
       "eyebrow": "线索判断与客户跟进",
       "summary": "把零散客户事实整理成可解释、可回放的下一步动作。",
       "role": "系统设计与工程实现",
-      "year": "2026.04 - 2026.05 · 后续持续维护",
+      "year": "2026.04 - 2026.05",
       "stack": [
         "FastAPI",
         "Pydantic",
@@ -451,12 +451,12 @@ export const projects: Record<Language, Project[]> = {
           "value": "81.9% → 91.3%"
         },
         {
-          "label": "Clean PR specificity",
-          "value": "91.7%"
+          "label": "High-risk recall",
+          "value": "84.2% → 94.7%"
         },
         {
-          "label": "Reproducible samples",
-          "value": "100 cases"
+          "label": "Clean PR specificity",
+          "value": "91.7%"
         }
       ],
       "caseStudy": {
@@ -520,12 +520,12 @@ export const projects: Record<Language, Project[]> = {
           "value": "30 cases"
         },
         {
-          "label": "B: MRR",
-          "value": "70.00%"
+          "label": "Hybrid-retrieval MRR",
+          "value": "64.17% → 70.00%"
         },
         {
-          "label": "C: no-answer F1",
-          "value": "100%"
+          "label": "Decision principle",
+          "value": "Deterministic · human-confirmed"
         }
       ],
       "caseStudy": {
@@ -536,7 +536,7 @@ export const projects: Record<Language, Project[]> = {
           "Keep evidence, field revisions, formulas and human confirmations in one traceable flow.",
           "Use controlled comparisons to inspect ranking and abstention trade-offs before choosing which controls to enable."
         ],
-        "outcome": "Delivered a multi-role demo connecting document checks, policy evidence, rule calculations and human confirmation. In the local 30-question evaluation on 2026-08-26, B reached 70.00% MRR; C reached 100% no-answer F1 and 65.00% MRR, with higher P95 retrieval latency.",
+        "outcome": "Delivered a multi-role demo connecting document checks, policy evidence, rule calculations and human confirmation. On 30 local policy questions, hybrid retrieval raised MRR from 64.17% to 70.00%; the agent rewrites at most once when evidence is weak, otherwise abstains and hands off.",
         "constraints": "People, applications, amounts and internal rules are demo data; external policies come from public sources. These are historical small-sample results; per-question JSON is not published, while the dataset, script and summary report are available. Citation metadata checks do not establish sentence-level answer accuracy. Local/remote model configuration does not establish dynamic routing between an on-device small model and a cloud model."
       },
       "technical": [
@@ -587,7 +587,7 @@ export const projects: Record<Language, Project[]> = {
       "eyebrow": "Lead decisions & customer follow-up",
       "summary": "Turning scattered customer facts into explainable next actions.",
       "role": "System design & engineering",
-      "year": "2026.04 - 2026.05 · maintained thereafter",
+      "year": "2026.04 - 2026.05",
       "stack": [
         "FastAPI",
         "Pydantic",
