@@ -15,6 +15,7 @@ export type Project = {
   localDemo?: string;
   previewImage: string;
   metrics: { label: string; value: string }[];
+  metricNote?: string;
   audience: string;
   capabilities: string[];
   quickStart: string[];
@@ -219,6 +220,7 @@ export const projects: Record<Language, Project[]> = {
           "value": "91.7%"
         }
       ],
+      "metricNote": "受控合成样本结果，不代表生产环境安全结论。",
       "caseStudy": {
         "context": "面向 PR 风险发现与安全修复场景，尝试把多 Agent 协作变成可中断、可恢复、可验证的工程流程。",
         "challenge": "长流程 Agent 会遇到调用失败、预算耗尽和中途退出；仅靠重新运行，既浪费成本，也难以解释失败原因。",
@@ -288,6 +290,7 @@ export const projects: Record<Language, Project[]> = {
           "value": "计算确定 · 人工确认"
         }
       ],
+      "metricNote": "30 题本地小样本，仅用于比较检索与拒答策略。",
       "caseStudy": {
         "context": "基于 Red Hat AI Quickstart 开源项目 multi-agent-loan-origination（Apache-2.0）二次开发。负责中国住房贷款场景所需的中文材料核验、政策知识库、确定性计算、MCP 工具接入和人工审批流程；授信计算和最终决策由代码与授权人员完成。",
         "challenge": "材料字段分散在不同文件，政策又受地域、版本和生效期约束。需要让 Agent 帮助理解与编排，同时把数值计算、权限检查和最终授信保留在可验证的流程中。",
@@ -310,7 +313,7 @@ export const projects: Record<Language, Project[]> = {
         },
         {
           "title": "MCP 工具集成与服务容错",
-          "body": "通过 MCP Streamable HTTP 与 langchain-mcp-adapters 将中国场景工具接入 Agent。分别配置文本、视觉、向量模型以及本地/远程 embedding，增加维度校验和懒加载；将超时、限流、连接失败与 5xx 归为结构化错误，标记是否可重试并保留人工处理路径。"
+          "body": "通过 MCP Streamable HTTP 与 langchain-mcp-adapters 接入基础风险评估、确定性计算和人工审批工具，并将外部预测模型作为可选服务；预测模型不可用时，基础风险评估、确定性计算与人工审批流程仍可运行。对限流、超时、连接失败和 5xx 返回结构化错误及可重试标记。"
         },
         {
           "title": "受控 Agentic RAG",
@@ -343,7 +346,7 @@ export const projects: Record<Language, Project[]> = {
     {
       "slug": "ai-sales-lead-crm-automation",
       "index": "03",
-      "name": "AI 销售线索决策与 CRM 自动化",
+      "name": "AI 销售线索决策与 CRM 自动化系统",
       "eyebrow": "线索判断与客户跟进",
       "summary": "把零散客户事实整理成可解释、可回放的下一步动作。",
       "role": "系统设计与工程实现",
@@ -387,6 +390,7 @@ export const projects: Record<Language, Project[]> = {
           "value": "95.21%"
         }
       ],
+      "metricNote": "18 条查询与测试覆盖率不等同于业务答案准确率。",
       "caseStudy": {
         "context": "面向销售线索、评分与客户跟进场景，建立从数据清洗到 CRM 路由的端到端决策原型。",
         "challenge": "客户信息分散在文本、表单和历史记录中，模型如果直接给建议，难以追溯事实来源和判断依据。",
@@ -459,6 +463,7 @@ export const projects: Record<Language, Project[]> = {
           "value": "91.7%"
         }
       ],
+      "metricNote": "Results use controlled synthetic samples and are not production security conclusions.",
       "caseStudy": {
         "context": "A system for PR risk discovery and secure repair, designed to make multi-agent collaboration interruptible, recoverable, and verifiable.",
         "challenge": "Long-running agents encounter failed calls, exhausted budgets, and interruptions. Restarting wastes cost and hides the reason for failure.",
@@ -528,6 +533,7 @@ export const projects: Record<Language, Project[]> = {
           "value": "Deterministic · human-confirmed"
         }
       ],
+      "metricNote": "A 30-question local sample used only to compare retrieval and abstention strategies.",
       "caseStudy": {
         "context": "An adaptation of Red Hat AI Quickstart’s multi-agent-loan-origination (Apache-2.0) for Chinese housing-loan workflows, covering document checks, policy retrieval, deterministic tools and human approval.",
         "challenge": "Facts are spread across documents, while policies vary by jurisdiction, version and effective date. Agents support interpretation and orchestration; calculations, access checks and final credit decisions need verifiable controls.",
@@ -550,7 +556,7 @@ export const projects: Record<Language, Project[]> = {
         },
         {
           "title": "MCP integration and service fault handling",
-          "body": "Connect China-scenario tools through MCP Streamable HTTP and langchain-mcp-adapters. Configure text, vision and embedding models plus local/remote embedding providers, with dimension checks and lazy loading. Classify timeouts, rate limits, connection failures and 5xx errors, mark retryability and retain a human-handling path."
+          "body": "Connect baseline risk-assessment, deterministic-calculation and human-approval tools through MCP Streamable HTTP and langchain-mcp-adapters, with the external predictive model treated as an optional service. If that model is unavailable, baseline risk assessment, deterministic calculations and human approval remain available. Return structured errors and retryability flags for rate limits, timeouts, connection failures and 5xx responses."
         },
         {
           "title": "Controlled Agentic RAG",
@@ -583,7 +589,7 @@ export const projects: Record<Language, Project[]> = {
     {
       "slug": "ai-sales-lead-crm-automation",
       "index": "03",
-      "name": "AI Sales Lead Decision & CRM Automation",
+      "name": "AI Sales Lead Decision & CRM Automation System",
       "eyebrow": "Lead decisions & customer follow-up",
       "summary": "Turning scattered customer facts into explainable next actions.",
       "role": "System design & engineering",
@@ -627,6 +633,7 @@ export const projects: Record<Language, Project[]> = {
           "value": "95.21%"
         }
       ],
+      "metricNote": "The 18-query sample and test coverage do not measure business-answer accuracy.",
       "caseStudy": {
         "context": "An end-to-end decision prototype for sales leads, scoring, customer facts, and CRM routing.",
         "challenge": "Customer information is spread across text, forms, and history. A model suggestion without evidence is difficult to audit.",

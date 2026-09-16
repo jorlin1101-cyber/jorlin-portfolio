@@ -2,12 +2,12 @@
 
 石卓灵（Jorlin Shi）的个人 AI Agent 工程作品集，中文为主，支持中英双语切换。
 
-[中文网站](https://jorlinshi.cn/?lang=zh) · [English](https://jorlinshi.cn/?lang=en) · [完整简历](https://jorlinshi.cn/resume-public.pdf?v=20260916-2)
+[中文网站](https://jorlinshi.cn/?lang=zh) · [English](https://jorlinshi.cn/?lang=en) · [完整简历](https://jorlinshi.cn/resume-public.pdf?v=20260916-3)
 
 ## 内容
 
 - AI 应用开发、Agent 工程与可验证的项目案例
-- SecurePR Agent、FinCredit Copilot、AI 销售线索决策与 CRM 自动化
+- SecurePR Agent、FinCredit Copilot、AI 销售线索决策与 CRM 自动化系统
 - 个人经历、技术方向、联系方式与公开简历
 
 ## 本地运行
@@ -34,7 +34,7 @@ pnpm dev
 - SecurePR Agent 主要开发周期：2026.05 - 2026.07；FinCredit Copilot：2026.07 - 2026.09；后续持续维护。
 - 科研：2023.06 - 2025.06；北京润科通用技术有限公司：2025.07 - 2026.01。
 - 教育：电子科技大学电子信息硕士（2022.09 - 2025.06）；西南石油大学电子信息科学与技术本科（2017.09 - 2021.06）。
-- 科研成果：EI 期刊第一作者论文 1 篇；发明专利申请 1 项（学生第一）。
+- 科研成果：EI 期刊第一作者论文 1 篇；发明专利公开 1 项（学生第一）。
 - FinCredit 使用 React / Vite、FastAPI、LangGraph 与 pgvector；作品集本身使用 Next.js。
 - FinCredit 指标以 [2026-08-26 本地 P0 报告](https://github.com/jorlin1101-cyber/fincredit-copilot/blob/main/docs/evaluation-report.md)为准：30 题，B 组 MRR 70.00%，C 组 MRR 65.00%、无答案 F1 100%；引用指标不代表答案逐句正确。
 - `public/resume-public.pdf` 是当前对外简历，`public/resume-editable.html` 是对应的可编辑母版。母版保留 V6.1 的照片与两页排版，包含项目 GitHub、项目案例和来源直链；编辑器支持正文修改、加粗、撤销/重做、恢复母版、行距与条目间距调节、HTML 保存和 PDF 导出。

@@ -60,6 +60,7 @@ export function ProjectDetail({ projects, initialLanguage = "zh" }: { projects: 
       <div className="detail-section"><h2>{text.constraints}</h2><p>{project.caseStudy.constraints}</p></div>
     </div><aside className="metrics-box">
       <h2>{text.metrics}</h2>{project.metrics.map((metric) => <div className="metric-row" key={metric.label}><span>{metric.label}</span><span>{metric.value}</span></div>)}
+      {project.metricNote && <p className="metric-note">{project.metricNote}</p>}
       <p className="hero-note">{project.role} · {project.year}</p><h3 className="resource-title">{text.evidence}</h3>
       <div className="resource-links">{project.resources?.map((resource) => <a className="evidence-link" key={resource.href} href={resource.href} target="_blank" rel="noreferrer">{resource.label}<ArrowUpRight size={14} /></a>)}</div>
     </aside></section>
