@@ -98,15 +98,15 @@ const portfolioCopy = {
     footer: "Designed and built by Jorlin Shi.", photo: "Portrait coming soon", resume: "Detailed résumé",
     theme: "Toggle theme", language: "切换到中文",
     experiences: [
-      { period: "Apr 2026 — Sep 2026", company: "Independent AI Engineering Practice", role: "AI Agent & AI Application Engineer", detail: "Completed three public AI systems.", highlights: ["Built a resumable agent runtime with budgets, checkpoints, specialist review, and human validation.", "Implemented hybrid RAG with BGE-M3, BM25, RRF, grounded generation, and retrieval evaluation.", "Connected typed APIs, multi-turn state, CRM automation, observability, and product-facing interfaces."], tags: ["LLM Agents", "RAG", "Evaluation", "Full-stack"] },
+      { period: "Apr 2026 — Present", company: "Independent AI Engineering Practice", role: "AI Agent & AI Application Engineer", detail: "Completed three public AI systems.", highlights: ["Built a resumable agent runtime with budgets, checkpoints, specialist review, and human validation.", "Implemented hybrid RAG with BGE-M3, BM25, RRF, grounded generation, and retrieval evaluation.", "Connected typed APIs, multi-turn state, CRM automation, observability, and product-facing interfaces."], tags: ["LLM Agents", "RAG", "Evaluation", "Full-stack"] },
       { period: "Jul 2025 — Jan 2026", company: "北京润科通用技术有限公司", role: "Simulation Modeling Engineer", detail: "Delivered simulation-platform integration, charging-protocol models and real-time validation.", highlights: ["Integrated C++ / Python calls, including argument conversion, returned values and exception mapping.", "Built Simulink charging-protocol models and message prototypes; supported integration, demo review and acceptance.", "Integrated models and reflective-memory interfaces, validated a core simulation cycle below 400 μs, and prepared debugging and acceptance documents."], tags: ["C++", "Python", "Simulink", "Stateflow", "Validation"] },
-      { period: "Jun 2023 — Jun 2025", company: "University of Electronic Science and Technology of China", role: "Research · Physics-prior FSO link modeling", detail: "Combined physical priors with data-driven models to predict received power, BER and outage probability for free-space optical links.", highlights: ["Built a MATLAB link-simulation data loop, then trained and validated models on held-out parameter combinations.", "On unseen parameter combinations, received-power MAPE fell from 15.1% to 8.7% with R² of 0.95; a conditional normalizing flow cut Wasserstein distance by 15% and per-case inference from 12.5 s to 3 s (about 4.2×)."], tags: ["Physics-guided ML", "MATLAB", "Model evaluation"] },
+      { period: "Jun 2023 — Jun 2025", company: "University of Electronic Science and Technology of China", role: "Research · Physics-guided AI Modeling", detail: "Combined physical priors with data-driven models to predict free-space optical communication performance.", highlights: ["Built simulation data pipelines in MATLAB and learned model residuals with neural networks.", "Reduced mean power-prediction error from 15.1% to 8.7%, with R² of 0.95; conditional normalizing flow reduced Wasserstein distance by 15% and per-case inference time from 12.5 s to 3 s (about 4.2×)."], tags: ["Physics-guided ML", "MATLAB", "Model evaluation"] },
     ],
     recognitions: [
       { title: "Outstanding Graduate Student", detail: "Graduate Academic Scholarship · Second Class" },
       { title: "Provincial First Prize", detail: "China Undergraduate Mathematical Contest in Modeling" },
       { title: "MCM Honorable Mention", detail: "Team captain" },
-      { title: "Research & Innovation", detail: "1 EI-indexed first-author paper · 1 invention patent (first among student inventors)" },
+      { title: "Research & Innovation", detail: "1 EI-indexed first-author paper · 1 invention patent application (first among student inventors)" },
     ],
     stack: [
       ["LLM & Context Engineering", "Model APIs · prompting · structured output · tool calling"],
@@ -119,7 +119,6 @@ const portfolioCopy = {
       ["Observability", "OpenTelemetry · Prometheus · logs · traces · failure analysis"],
       ["Product Frontend", "TypeScript · React · Next.js · bilingual interaction design"],
       ["Delivery", "Docker · CI checks · reproducible local and public demos"],
-      ["Languages", "English CET-6 · Japanese JLPT N2"],
     ],
     notes: [
       { title: "SecurePR Agent", body: "PR review and repair: resumable runtime, specialist review, evidence, validation gates, and controlled evaluation.", topics: ["Runtime", "Code review", "Evaluation"], slug: "securepr-agent" },
@@ -176,15 +175,15 @@ const portfolioCopy = {
     footer: "由石卓灵设计与开发。", photo: "职业照稍后更新", resume: "完整简历",
     theme: "切换明暗主题", language: "Switch to English",
     experiences: [
-      { period: "2026.04 — 2026.09", company: "个人 AI 工程实践", role: "AI Agent 与 AI 应用工程师", detail: "完成了三个公开 AI 系统。", highlights: ["构建支持预算控制、检查点、专业角色审查与人工确认的可恢复 Agent Runtime。", "实现融合 BGE-M3、BM25、RRF、Grounded Generation 与检索评测的混合 RAG 链路。", "打通强类型 API、多轮状态、CRM 自动化、可观测性与面向用户的产品界面。"], tags: ["LLM Agent", "RAG", "评测", "全栈开发"] },
+      { period: "2026.04 — 至今", company: "个人 AI 工程实践", role: "AI Agent 与 AI 应用工程师", detail: "完成了三个公开 AI 系统。", highlights: ["构建支持预算控制、检查点、专业角色审查与人工确认的可恢复 Agent Runtime。", "实现融合 BGE-M3、BM25、RRF、Grounded Generation 与检索评测的混合 RAG 链路。", "打通强类型 API、多轮状态、CRM 自动化、可观测性与面向用户的产品界面。"], tags: ["LLM Agent", "RAG", "评测", "全栈开发"] },
       { period: "2025.07 — 2026.01", company: "北京润科通用技术有限公司", role: "仿真建模工程师", detail: "完成仿真平台集成、充电协议建模与实时性能验证。", highlights: ["完成 C++ / Python 跨语言调用、参数转换、返回值与异常映射。", "搭建 Simulink 充电协议模型与报文原型，支持平台接入、演示评审与验收。", "集成模型与反射内存接口，验证核心仿真周期 < 400 μs，编写调试与验收文档。"], tags: ["C++", "Python", "Simulink", "Stateflow", "验证"] },
-      { period: "2023.06 — 2025.06", company: "电子科技大学", role: "科研 · 物理先验引导的自由空间光通信链路建模", detail: "面向自由空间光通信链路，结合物理先验与数据驱动模型预测接收功率、误码率和中断概率。", highlights: ["基于自研 MATLAB 链路仿真搭建数据闭环，并按参数组合划分训练与测试集。", "在未参与训练的参数组合上，接收功率 MAPE 由 15.1% 降至 8.7%，R² 达 0.95；条件归一化流使 Wasserstein 距离下降 15%，单工况推理由 12.5 s 降至 3 s（约 4.2 倍）。"], tags: ["物理先验", "MATLAB", "模型评测"] },
+      { period: "2023.06 — 2025.06", company: "电子科技大学", role: "科研 · 物理模型引导的 AI 建模", detail: "面向自由空间光通信链路，结合物理先验与数据驱动模型开展性能预测。", highlights: ["基于 MATLAB 仿真搭建训练数据流水线，以残差网络学习理论模型与仿真的偏差。", "平均功率预测误差由 15.1% 降至 8.7%，R² 达 0.95；条件归一化流使 Wasserstein 距离下降 15%，单工况推理耗时由 12.5 s 降至 3 s（约 4.2 倍）。"], tags: ["物理先验", "MATLAB", "模型评测"] },
     ],
     recognitions: [
       { title: "优秀研究生", detail: "研究生学业二等奖学金" },
       { title: "省一等奖", detail: "全国大学生数学建模竞赛" },
       { title: "MCM H 奖", detail: "美国大学生数学建模竞赛 · 队长" },
-      { title: "科研与创新", detail: "EI 期刊第一作者论文 1 篇 · 发明专利 1 项（学生第一）" },
+      { title: "科研与创新", detail: "EI 期刊第一作者论文 1 篇 · 发明专利申请 1 项（学生第一）" },
     ],
     stack: [
       ["LLM 与上下文工程", "模型 API · Prompt · 结构化输出 · 工具调用"],
@@ -197,7 +196,6 @@ const portfolioCopy = {
       ["可观测性", "OpenTelemetry · Prometheus · 日志 · Trace · 失败分析"],
       ["产品前端", "TypeScript · React · Next.js · 中英双语交互"],
       ["交付部署", "Docker · CI 检查 · 可复现本地与公网演示"],
-      ["语言技能", "英语六级 · 日语 N2"],
     ],
     notes: [
       { title: "SecurePR Agent", body: "PR 风险审查与修复：围绕可恢复 Runtime、多角色审查、证据复核、验证门禁与受控评测展开项目复盘。", topics: ["运行恢复", "代码审查", "评测"], slug: "securepr-agent" },
@@ -289,7 +287,7 @@ export function PortfolioHome({ initialLanguage = "zh" }: { initialLanguage?: La
           <div className="orbit orbit-top" aria-hidden="true" />
           <div className="profile-photo-placeholder"><img src="/assets/profile-photo-natural.jpg" alt={language === "zh" ? "石卓灵职业形象照" : "Professional portrait of Jorlin Shi"} /></div>
           <h1>{name}</h1><p>{ui.profileDescription}</p>
-          <div className="profile-socials"><a href={profile.github} target="_blank" rel="noreferrer" aria-label="GitHub"><Github size={20} /></a><a href={`mailto:${profile.email}`} aria-label="Email"><Mail size={20} /></a><a href="/resume-public.pdf?v=20260916" target="_blank" aria-label={ui.resume}><FileText size={20} /></a></div>
+          <div className="profile-socials"><a href={profile.github} target="_blank" rel="noreferrer" aria-label="GitHub"><Github size={20} /></a><a href={`mailto:${profile.email}`} aria-label="Email"><Mail size={20} /></a><a href="/resume-public.pdf?v=20260916-2" target="_blank" aria-label={ui.resume}><FileText size={20} /></a></div>
           <div className="availability"><span />{ui.availability}</div><div className="orbit orbit-bottom" aria-hidden="true" />
         </div></aside>
 
