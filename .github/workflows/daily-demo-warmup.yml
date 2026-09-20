@@ -1,0 +1,57 @@
+name: Daily demo warmup
+
+on:
+  schedule:
+    # 01:07 UTC = 09:07 Asia/Shanghai. Avoid the top of the hour, when
+    # scheduled GitHub Actions jobs are more likely to be delayed.
+    - cron: "7 1 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: daily-demo-warmup
+  cancel-in-progress: true
+
+jobs:
+  warmup:
+    name: Wake portfolio and demos
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Visit public pages and health endpoints
+        shell: bash
+        run: |
+          set -u
+
+          urls=(
+            "https://jorlinshi.cn/?lang=zh"
+            "https://securepr-agent-demo.onrender.com/health"
+            "https://fincredit-copilot-demo.onrender.com/"
+            "https://fincredit-demo-api.onrender.com/health/"
+            "https://leadflow-sales-demo.onrender.com/health"
+          )
+
+          failed=0
+          for url in "${urls[@]}"; do
+            echo "Waking ${url}"
+            if curl \
+              --fail \
+              --location \
+              --silent \
+              --show-error \
+              --max-time 180 \
+              --retry 2 \
+              --retry-delay 15 \
+              --retry-all-errors \
+              --output /dev/null \
+              "$url"; then
+              echo "OK: ${url}"
+            else
+              echo "FAILED: ${url}"
+              failed=1
+            fi
+          done
+
+          exit "$failed"
